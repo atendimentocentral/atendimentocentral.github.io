@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Caçamba Fácil | Aluguel de Caçambas para Entulho</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f7fc;
+            color: #1e293b;
+            scroll-behavior: smooth;
+        }
+
+        /* Container padrão */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background-color: #ffffff;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(2px);
+            background-color: rgba(255,255,255,0.96);
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            flex-wrap: wrap;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1.8rem;
+            letter-spacing: -0.5px;
+            color: #0f3b2c;
+        }
+        .logo i {
+            font-size: 2rem;
+            color: #2b7a4b;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #334155;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: #2b7a4b;
+        }
+        .btn-contato {
+            background-color: #2b7a4b;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 40px;
+            transition: 0.2s;
+        }
+        .btn-contato:hover {
+            background-color: #1e5a3a;
+            transform: scale(1.02);
+        }
+
+        /* Hero - sem imagem, apenas texto centralizado */
+        .hero {
+            background: linear-gradient(135deg, #e9f5ef 0%, #d4e9e0 100%);
+            padding: 90px 0 100px;
+            text-align: center;
+        }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #0a2e22;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #2d3e35;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primario {
+            background-color: #2b7a4b;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 48px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.2s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        .btn-primario:hover {
+            background-color: #1f6240;
+            transform: translateY(-2px);
+        }
+        .btn-secundario {
+            background-color: white;
+            color: #2b7a4b;
+            padding: 14px 32px;
+            border-radius: 48px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 1px solid #cbd5e1;
+            transition: 0.2s;
+        }
+        .btn-secundario:hover {
+            border-color: #2b7a4b;
+            background-color: #f8fafc;
+        }
+
+        /* Seção de modelos de caçambas */
+        .section {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: #0f2c22;
+        }
+        .section-sub {
+            text-align: center;
+            color: #475569;
+            max-width: 700px;
+            margin: 0 auto 48px auto;
+            font-size: 1.1rem;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+        }
+        .card {
+            background: white;
+            border-radius: 32px;
+            padding: 28px 24px;
+            flex: 1 1 280px;
+            max-width: 320px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+            transition: all 0.25s ease;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 40px -12px rgba(0,0,0,0.15);
+        }
+        .card-icon {
+            font-size: 3rem;
+            color: #2b7a4b;
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .card .medidas {
+            color: #4b5563;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .card .preco {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0f3b2c;
+            margin: 15px 0 5px;
+        }
+        .card .preco small {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #5b6e8c;
+        }
+        .card .desc {
+            color: #5b6e8c;
+            margin: 16px 0;
+            font-size: 0.9rem;
+        }
+        .btn-card {
+            background-color: #f1f5f9;
+            border: none;
+            padding: 12px 0;
+            width: 100%;
+            border-radius: 60px;
+            font-weight: 700;
+            color: #1e462f;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+            font-size: 1rem;
+            margin-top: 12px;
+        }
+        .btn-card:hover {
+            background-color: #2b7a4b;
+            color: white;
+        }
+
+        /* Como funciona */
+        .steps {
+            background-color: #ffffff;
+            border-top: 1px solid #e9edf2;
+            border-bottom: 1px solid #e9edf2;
+        }
+        .steps-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .step-item {
+            flex: 1 1 200px;
+            text-align: center;
+            padding: 20px;
+        }
+        .step-number {
+            background-color: #eef4ff;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            border-radius: 60px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #2b7a4b;
+        }
+        .step-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        /* Seção de contato direto WhatsApp */
+        .contato-direto {
+            background: linear-gradient(115deg, #f0f9f4 0%, #ffffff 100%);
+            text-align: center;
+        }
+        .whatsapp-card {
+            background: white;
+            border-radius: 48px;
+            padding: 48px 32px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.15);
+            border: 1px solid #e2f0e8;
+            transition: all 0.3s;
+        }
+        .whatsapp-card i {
+            font-size: 4.5rem;
+            color: #25D366;
+            margin-bottom: 20px;
+        }
+        .whatsapp-card h3 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            color: #0f2c22;
+        }
+        .whatsapp-card p {
+            font-size: 1.1rem;
+            color: #334155;
+            margin-bottom: 28px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            padding: 16px 42px;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.2s;
+            box-shadow: 0 8px 18px rgba(37,211,102,0.3);
+        }
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            transform: scale(1.02);
+            box-shadow: 0 12px 22px rgba(37,211,102,0.4);
+        }
+        .telefone-destaque {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: #f1f9f0;
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 60px;
+            margin-top: 20px;
+            color: #1e462f;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0f2c22;
+            color: #cfdfd7;
+            padding: 48px 0 24px;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-logo {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: white;
+        }
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .footer-links a:hover {
+            color: white;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid #2a4b3c;
+            font-size: 0.85rem;
+        }
+        .atendimento-nacional {
+            background-color: #1e4a3a;
+            color: #e2f0e8;
+            text-align: center;
+            padding: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 60px;
+            margin-top: 20px;
+        }
+        .atendimento-nacional i {
+            margin-right: 8px;
+            color: #4ade80;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            max-width: 450px;
+            width: 90%;
+            border-radius: 32px;
+            padding: 32px;
+            text-align: center;
+            animation: fadeInUp 0.3s ease;
+        }
+        .modal-content i {
+            font-size: 3.5rem;
+            color: #2b7a4b;
+            margin-bottom: 20px;
+        }
+        .modal-content h3 {
+            font-size: 1.7rem;
+            margin-bottom: 16px;
+        }
+        .close-modal {
+            background-color: #2b7a4b;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            color: white;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 780px) {
+            .nav {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .whatsapp-card h3 {
+                font-size: 1.5rem;
+            }
+            .btn-whatsapp {
+                padding: 12px 28px;
+                font-size: 1rem;
+            }
+            .telefone-destaque {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="nav">
+            <div class="logo">
+                <i class="fas fa-dumpster"></i>
+                <span>CaçambaFácil</span>
+            </div>
+            <div class="nav-links">
+                <a href="#modelos">Caçambas</a>
+                <a href="#como-funciona">Como funciona</a>
+                <a href="#contato-whats">Fale conosco</a>
+                <a href="https://wa.me/5511921474407?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20alugar%20uma%20caçamba." target="_blank" class="btn-contato"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero sem imagem, apenas texto -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Aluguel de caçambas para entulho com agilidade e segurança</h1>
+                <p>Atendemos obras, reformas, limpezas e muito mais. Entrega e retirada no prazo, sem complicação.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/5511921474407?text=Olá!%20Quero%20alugar%20uma%20caçamba%20e%20gostaria%20de%20informações." target="_blank" class="btn-primario"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+                    <a href="#modelos" class="btn-secundario"><i class="fas fa-truck"></i> Ver modelos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modelos de Caçambas -->
+    <section id="modelos" class="section">
+        <div class="container">
+            <h2 class="section-title">Modelos ideais para seu projeto</h2>
+            <p class="section-sub">Escolha o tamanho certo para sua reforma ou obra. Preços transparentes e condições especiais.</p>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-box-open"></i></div>
+                    <h3>5 m³</h3>
+                    <div class="medidas">Pequeno porte</div>
+                    <div class="preco">R$ 450 <small>/diária</small></div>
+                    <div class="desc">Ideal para limpezas de jardim, pequenas reformas residenciais e sobras de materiais leves.</div>
+                    <button class="btn-card" data-modelo="5m³" data-preco="R$450">Solicitar via WhatsApp</button>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-dumpster"></i></div>
+                    <h3>7 m³</h3>
+                    <div class="medidas">Médio porte</div>
+                    <div class="preco">R$ 590 <small>/diária</small></div>
+                    <div class="desc">Reformas completas de apartamentos, construção de muros, entulho misto. Muito utilizado.</div>
+                    <button class="btn-card" data-modelo="7m³" data-preco="R$590">Solicitar via WhatsApp</button>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-truck-moving"></i></div>
+                    <h3>10 m³</h3>
+                    <div class="medidas">Grande porte</div>
+                    <div class="preco">R$ 780 <small>/diária</small></div>
+                    <div class="desc">Obras maiores, demolições, terrenos. Capacidade ampla para entulho pesado e volumoso.</div>
+                    <button class="btn-card" data-modelo="10m³" data-preco="R$780">Solicitar via WhatsApp</button>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-building"></i></div>
+                    <h3>15 m³</h3>
+                    <div class="medidas">Extra / Industrial</div>
+                    <div class="preco">R$ 1.050 <small>/diária</small></div>
+                    <div class="desc">Construção civil pesada, obras de grande geração de resíduos. Economia no volume.</div>
+                    <button class="btn-card" data-modelo="15m³" data-preco="R$1050">Solicitar via WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section id="como-funciona" class="steps">
+        <div class="container section">
+            <h2 class="section-title">Como alugar sua caçamba?</h2>
+            <p class="section-sub">Simples, rápido e sem burocracia. Entregamos na sua obra e retiramos no prazo combinado.</p>
+            <div class="steps-grid">
+                <div class="step-item"><div class="step-number">1</div><h4>Escolha o modelo</h4><p>Selecione o tamanho ideal para seu entulho.</p></div>
+                <div class="step-item"><div class="step-number">2</div><h4>Fale conosco</h4><p>Clique no botão do WhatsApp e solicite seu orçamento.</p></div>
+                <div class="step-item"><div class="step-number">3</div><h4>Agendamos a entrega</h4><p>Colocamos a caçamba no local indicado.</p></div>
+                <div class="step-item"><div class="step-number">4</div><h4>Encha e acione a retirada</h4><p>Assim que pronto, retiramos o material com segurança.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE CONTATO DIRETO - WHATSAPP -->
+    <section id="contato-whats" class="contato-direto section">
+        <div class="container">
+            <div class="whatsapp-card">
+                <i class="fab fa-whatsapp"></i>
+                <h3>Fale direto com a gente</h3>
+                <p>Atendimento rápido e personalizado. Tire suas dúvidas, peça um orçamento sem compromisso ou agende sua caçamba agora mesmo.</p>
+                <a href="https://wa.me/5511921474407?text=Olá!%20Gostaria%20de%20informações%20sobre%20o%20aluguel%20de%20caçambas." target="_blank" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+                </a>
+                <div class="telefone-destaque">
+                    <i class="fas fa-phone-alt"></i> (11) 92147-4407
+                </div>
+                <p style="margin-top: 20px; font-size: 0.9rem;">*Clique no botão ou ligue para atendimento comercial</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo"><i class="fas fa-dumpster"></i> CaçambaFácil</div>
+                <p style="margin-top: 12px;">Aluguel de caçambas com responsabilidade ambiental e pontualidade.</p>
+                <p style="margin-top: 10px;"><i class="fab fa-whatsapp"></i> <strong>(11) 92147-4407</strong> | <i class="far fa-clock"></i> Seg-Sáb 7h-19h</p>
+            </div>
+            <div class="footer-links">
+                <strong>Links úteis</strong>
+                <a href="#modelos">Nossas caçambas</a>
+                <a href="#como-funciona">Como funciona</a>
+                <a href="#contato-whats">WhatsApp</a>
+            </div>
+            <div class="footer-links">
+                <strong>Atendimento</strong>
+                <a href="https://wa.me/5511921474407" target="_blank"><i class="fab fa-whatsapp"></i> (11) 92147-4407</a>
+                <a href="mailto:contato@cacambafacil.com.br"><i class="far fa-envelope"></i> contato@cacambafacil.com</a>
+                <span><i class="fas fa-map-marker-alt"></i> São Paulo - SP</span>
+            </div>
+        </div>
+        <!-- Destaque: Atendemos todo o Brasil -->
+        <div class="atendimento-nacional">
+            <i class="fas fa-globe-americas"></i> Atendemos todo o Brasil! | Entregamos sua caçamba onde você precisar, com logística capilar em todos os estados.
+        </div>
+        <div class="copyright">
+            &copy; 2026 CaçambaFácil Locação de Caçambas Ltda. Todos os direitos reservados.
+        </div>
+    </div>
+</footer>
+
+<!-- Modal de confirmação para os cards -->
+<div id="modalConfirm" class="modal">
+    <div class="modal-content">
+        <i class="fab fa-whatsapp"></i>
+        <h3>Vamos conversar!</h3>
+        <p>Você será redirecionado ao nosso WhatsApp para finalizar a solicitação da caçamba escolhida.</p>
+        <button class="close-modal" id="closeModalBtn">Continuar</button>
+    </div>
+</div>
+
+<script>
+    // Todos os botões dos cards abrem o WhatsApp com mensagem personalizada
+    const botoesCards = document.querySelectorAll('.btn-card');
+    const modal = document.getElementById('modalConfirm');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    // Função para redirecionar ao WhatsApp com texto pré-definido
+    function redirectToWhatsApp(modelo, preco) {
+        const telefone = '5511921474407';
+        let message = `Olá! Gostaria de solicitar um orçamento para a caçamba de ${modelo} - ${preco}/diária. Poderia me passar mais informações sobre disponibilidade e entrega?`;
+        const encodedMessage = encodeURIComponent(message);
+        window.open(`https://wa.me/${telefone}?text=${encodedMessage}`, '_blank');
+    }
+
+    // Evento para cada card
+    botoesCards.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const modelo = this.getAttribute('data-modelo');
+            const preco = this.getAttribute('data-preco');
+            // Exibe modal de confirmação
+            modal.style.display = 'flex';
+            // Armazena os dados para usar no fechamento do modal
+            modal.dataset.modelo = modelo;
+            modal.dataset.preco = preco;
+        });
+    });
+
+    // Ao clicar em continuar no modal, redireciona para o WhatsApp
+    function confirmAndRedirect() {
+        if (modal.dataset.modelo && modal.dataset.preco) {
+            redirectToWhatsApp(modal.dataset.modelo, modal.dataset.preco);
+        } else {
+            redirectToWhatsApp('caçamba', 'valores especiais');
+        }
+        modal.style.display = 'none';
+        delete modal.dataset.modelo;
+        delete modal.dataset.preco;
+    }
+
+    closeModalBtn.addEventListener('click', confirmAndRedirect);
+    
+    // Fechar modal se clicar fora
+    window.addEventListener('click', function(e) {
+        if(e.target === modal) {
+            confirmAndRedirect();
+        }
+    });
+    
+    // Garantir que todos os links do WhatsApp tenham o número correto
+    const allWhatsLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]');
+    allWhatsLinks.forEach(link => {
+        let href = link.getAttribute('href');
+        if(href && (href.includes('wa.me') || href.includes('api.whatsapp'))) {
+            if(!href.includes('5511921474407')) {
+                let newHref = href.replace(/wa.me\/\d+/, 'wa.me/5511921474407');
+                newHref = newHref.replace(/api.whatsapp.com\/send\?phone=\d+/, 'api.whatsapp.com/send?phone=5511921474407');
+                link.setAttribute('href', newHref);
+            }
+        }
+    });
+    
+    // Atualizar botão do hero e nav
+    const heroBtn = document.querySelector('.hero-buttons .btn-primario');
+    if(heroBtn && heroBtn.getAttribute('href')) {
+        if(!heroBtn.getAttribute('href').includes('5511921474407')) {
+            heroBtn.setAttribute('href', 'https://wa.me/5511921474407?text=Olá!%20Quero%20alugar%20uma%20caçamba%20e%20gostaria%20de%20informações.');
+        }
+    }
+    
+    const navWhatsBtn = document.querySelector('.nav-links .btn-contato');
+    if(navWhatsBtn && navWhatsBtn.getAttribute('href')) {
+        if(!navWhatsBtn.getAttribute('href').includes('5511921474407')) {
+            navWhatsBtn.setAttribute('href', 'https://wa.me/5511921474407?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20alugar%20uma%20caçamba.');
+        }
+    }
+    
+    // Smooth scroll para âncoras
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if(href === "#" || href === "") return;
+            const target = document.querySelector(href);
+            if(target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+</body>
+</html>
