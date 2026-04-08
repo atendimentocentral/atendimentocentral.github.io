@@ -1,770 +1,544 @@
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Caçamba Fácil | Aluguel de Caçambas para Entulho</title>
-    <!-- Font Awesome 6 (free) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Portal de Atendimento | Soluções Financeiras</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f5f7fc;
-            color: #1e293b;
-            scroll-behavior: smooth;
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #eef2ff 0%, #e0e7f7 100%);
+      color: #001a3b;
+      line-height: 1.4;
+      min-height: 100vh;
+      padding: 2rem 1.5rem;
+    }
 
-        /* Container padrão */
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+    .portal-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
 
-        /* Header */
-        .header {
-            background-color: #ffffff;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            backdrop-filter: blur(2px);
-            background-color: rgba(255,255,255,0.96);
-        }
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 0;
-            flex-wrap: wrap;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 800;
-            font-size: 1.8rem;
-            letter-spacing: -0.5px;
-            color: #0f3b2c;
-        }
-        .logo i {
-            font-size: 2rem;
-            color: #2b7a4b;
-        }
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-        }
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 600;
-            color: #334155;
-            transition: 0.2s;
-        }
-        .nav-links a:hover {
-            color: #2b7a4b;
-        }
-        .btn-contato {
-            background-color: #2b7a4b;
-            color: white !important;
-            padding: 10px 20px;
-            border-radius: 40px;
-            transition: 0.2s;
-        }
-        .btn-contato:hover {
-            background-color: #1e5a3a;
-            transform: scale(1.02);
-        }
+    /* cabeçalho */
+    .main-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      background: white;
+      padding: 1rem 2rem;
+      border-radius: 32px;
+      box-shadow: 0 8px 20px rgba(0, 32, 64, 0.08);
+      border: 1px solid rgba(0, 94, 157, 0.15);
+    }
 
-        /* Hero - sem imagem, apenas texto centralizado */
-        .hero {
-            background: linear-gradient(135deg, #e9f5ef 0%, #d4e9e0 100%);
-            padding: 90px 0 100px;
-            text-align: center;
-        }
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .hero-content h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            color: #0a2e22;
-        }
-        .hero-content p {
-            font-size: 1.2rem;
-            color: #2d3e35;
-            margin-bottom: 32px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .btn-primario {
-            background-color: #2b7a4b;
-            color: white;
-            padding: 14px 32px;
-            border-radius: 48px;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.2s;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-        }
-        .btn-primario:hover {
-            background-color: #1f6240;
-            transform: translateY(-2px);
-        }
-        .btn-secundario {
-            background-color: white;
-            color: #2b7a4b;
-            padding: 14px 32px;
-            border-radius: 48px;
-            font-weight: 700;
-            text-decoration: none;
-            border: 1px solid #cbd5e1;
-            transition: 0.2s;
-        }
-        .btn-secundario:hover {
-            border-color: #2b7a4b;
-            background-color: #f8fafc;
-        }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-        /* Seção de modelos de caçambas */
-        .section {
-            padding: 80px 0;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 16px;
-            color: #0f2c22;
-        }
-        .section-sub {
-            text-align: center;
-            color: #475569;
-            max-width: 700px;
-            margin: 0 auto 48px auto;
-            font-size: 1.1rem;
-        }
-        .cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 32px;
-            justify-content: center;
-        }
-        .card {
-            background: white;
-            border-radius: 32px;
-            padding: 28px 24px;
-            flex: 1 1 280px;
-            max-width: 320px;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
-            transition: all 0.25s ease;
-            text-align: center;
-            border: 1px solid #e2e8f0;
-            position: relative;
-        }
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 25px 40px -12px rgba(0,0,0,0.15);
-        }
-        .card-icon {
-            font-size: 3rem;
-            color: #2b7a4b;
-            margin-bottom: 20px;
-        }
-        .card h3 {
-            font-size: 1.7rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-        .card .medidas {
-            color: #4b5563;
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-        .card .preco {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #0f3b2c;
-            margin: 15px 0 5px;
-        }
-        .card .preco small {
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: #5b6e8c;
-        }
-        .card .desc {
-            color: #5b6e8c;
-            margin: 16px 0;
-            font-size: 0.9rem;
-        }
-        /* Destaque para informação de 5 dias */
-        .info-dias {
-            background-color: #fef9e3;
-            color: #b45309;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 5px 12px;
-            border-radius: 40px;
-            display: inline-block;
-            margin-bottom: 10px;
-            letter-spacing: 0.3px;
-        }
-        .info-dias i {
-            font-size: 0.7rem;
-            margin-right: 4px;
-        }
-        .btn-card {
-            background-color: #f1f5f9;
-            border: none;
-            padding: 12px 0;
-            width: 100%;
-            border-radius: 60px;
-            font-weight: 700;
-            color: #1e462f;
-            cursor: pointer;
-            transition: 0.2s;
-            font-family: inherit;
-            font-size: 1rem;
-            margin-top: 12px;
-        }
-        .btn-card:hover {
-            background-color: #2b7a4b;
-            color: white;
-        }
+    .logo-icon {
+      background: #003c8f;
+      width: 48px;
+      height: 48px;
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0,60,143,0.2);
+    }
 
-        /* Como funciona */
-        .steps {
-            background-color: #ffffff;
-            border-top: 1px solid #e9edf2;
-            border-bottom: 1px solid #e9edf2;
-        }
-        .steps-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-        }
-        .step-item {
-            flex: 1 1 200px;
-            text-align: center;
-            padding: 20px;
-        }
-        .step-number {
-            background-color: #eef4ff;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            border-radius: 60px;
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #2b7a4b;
-        }
-        .step-item h4 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-        }
+    .logo-icon i {
+      font-size: 28px;
+      color: white;
+    }
 
-        /* Seção de contato direto WhatsApp */
-        .contato-direto {
-            background: linear-gradient(115deg, #f0f9f4 0%, #ffffff 100%);
-            text-align: center;
-        }
-        .whatsapp-card {
-            background: white;
-            border-radius: 48px;
-            padding: 48px 32px;
-            max-width: 800px;
-            margin: 0 auto;
-            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.15);
-            border: 1px solid #e2f0e8;
-            transition: all 0.3s;
-        }
-        .whatsapp-card i {
-            font-size: 4.5rem;
-            color: #25D366;
-            margin-bottom: 20px;
-        }
-        .whatsapp-card h3 {
-            font-size: 2rem;
-            margin-bottom: 16px;
-            color: #0f2c22;
-        }
-        .whatsapp-card p {
-            font-size: 1.1rem;
-            color: #334155;
-            margin-bottom: 28px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .btn-whatsapp {
-            background-color: #25D366;
-            color: white;
-            padding: 16px 42px;
-            border-radius: 60px;
-            font-weight: 800;
-            font-size: 1.2rem;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            transition: 0.2s;
-            box-shadow: 0 8px 18px rgba(37,211,102,0.3);
-        }
-        .btn-whatsapp:hover {
-            background-color: #128C7E;
-            transform: scale(1.02);
-            box-shadow: 0 12px 22px rgba(37,211,102,0.4);
-        }
-        .telefone-destaque {
-            font-size: 1.6rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            background: #f1f9f0;
-            display: inline-block;
-            padding: 8px 24px;
-            border-radius: 60px;
-            margin-top: 20px;
-            color: #1e462f;
-        }
+    .logo-text h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      background: linear-gradient(135deg, #003c8f 0%, #0066b3 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
 
-        /* Footer */
-        .footer {
-            background-color: #0f2c22;
-            color: #cfdfd7;
-            padding: 48px 0 24px;
-        }
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        .footer-logo {
-            font-size: 1.7rem;
-            font-weight: 800;
-            color: white;
-        }
-        .footer-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 12px;
-        }
-        .footer-links a:hover {
-            color: white;
-        }
-        .copyright {
-            text-align: center;
-            padding-top: 32px;
-            border-top: 1px solid #2a4b3c;
-            font-size: 0.85rem;
-        }
-        .atendimento-nacional {
-            background-color: #1e4a3a;
-            color: #e2f0e8;
-            text-align: center;
-            padding: 12px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            border-radius: 60px;
-            margin-top: 20px;
-        }
-        .atendimento-nacional i {
-            margin-right: 8px;
-            color: #4ade80;
-        }
+    .logo-text span {
+      font-size: 0.8rem;
+      color: #1e5a8a;
+      font-weight: 500;
+      display: block;
+    }
 
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.7);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        .modal-content {
-            background: white;
-            max-width: 450px;
-            width: 90%;
-            border-radius: 32px;
-            padding: 32px;
-            text-align: center;
-            animation: fadeInUp 0.3s ease;
-        }
-        .modal-content i {
-            font-size: 3.5rem;
-            color: #2b7a4b;
-            margin-bottom: 20px;
-        }
-        .modal-content h3 {
-            font-size: 1.7rem;
-            margin-bottom: 16px;
-        }
-        .close-modal {
-            background-color: #2b7a4b;
-            border: none;
-            padding: 12px 28px;
-            border-radius: 40px;
-            color: white;
-            font-weight: bold;
-            margin-top: 20px;
-            cursor: pointer;
-        }
-        /* Banner adicional de informação sobre 5 dias */
-        .info-banner {
-            background-color: #e6f7f0;
-            border-left: 6px solid #2b7a4b;
-            padding: 16px 24px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 40px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-        }
-        .info-banner i {
-            font-size: 2rem;
-            color: #2b7a4b;
-        }
-        .info-banner span {
-            font-weight: 600;
-            color: #1a4d3a;
-            font-size: 1rem;
-        }
-        .info-banner strong {
-            color: #b45309;
-            background: #fff1e0;
-            padding: 5px 12px;
-            border-radius: 40px;
-            margin: 0 5px;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @media (max-width: 780px) {
-            .nav {
-                flex-direction: column;
-                gap: 16px;
-            }
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-            .section-title {
-                font-size: 1.8rem;
-            }
-            .whatsapp-card h3 {
-                font-size: 1.5rem;
-            }
-            .btn-whatsapp {
-                padding: 12px 28px;
-                font-size: 1rem;
-            }
-            .telefone-destaque {
-                font-size: 1.2rem;
-            }
-            .info-banner {
-                flex-direction: column;
-                text-align: center;
-                padding: 16px;
-            }
-        }
-    </style>
+    .atendimento-badge {
+      background: #25D366;
+      padding: 8px 20px;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .atendimento-badge i {
+      color: white;
+    }
+
+    .welcome-card {
+      background: white;
+      border-radius: 32px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      border-left: 6px solid #0066b3;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .welcome-text h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: #00264d;
+    }
+
+    .welcome-text p {
+      color: #2c5a7a;
+      margin-top: 6px;
+    }
+
+    .help-icon {
+      background: #eef2ff;
+      border-radius: 60px;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #005a9c;
+    }
+
+    /* grid dos botões */
+    .actions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 3rem;
+    }
+
+    .action-btn {
+      background: white;
+      border-radius: 28px;
+      padding: 1.6rem 0.8rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.04);
+      border: 1px solid #dce5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -12px rgba(0, 60, 143, 0.25);
+      border-color: #25D366;
+      background: #fbfeff;
+    }
+
+    .btn-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(145deg, #eef2ff, #e3eafc);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      color: #0059b3;
+      transition: 0.2s;
+    }
+
+    .action-btn:hover .btn-icon {
+      background: #25D366;
+      color: white;
+    }
+
+    .action-btn h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #002d62;
+    }
+
+    .action-btn p {
+      font-size: 0.85rem;
+      color: #3e6b8c;
+      max-width: 180px;
+      margin: 0 auto;
+    }
+
+    /* card de resumo do contrato */
+    .status-card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+      border: 1px solid #e2edff;
+      width: 100%;
+    }
+
+    .status-card h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #003c8f;
+      border-left: 4px solid #0066b3;
+      padding-left: 12px;
+    }
+
+    .simulated-list {
+      list-style: none;
+    }
+
+    .simulated-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #ecf3fa;
+      color: #1f4662;
+    }
+
+    .simulated-list i {
+      width: 28px;
+      color: #0070c0;
+    }
+
+    /* nova seção de vantagens - quitar contrato antecipadamente */
+    .vantagens-section {
+      background: linear-gradient(135deg, #ffffff 0%, #f0f6ff 100%);
+      border-radius: 28px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #cde0fe;
+      box-shadow: 0 8px 20px rgba(0, 60, 143, 0.08);
+    }
+
+    .vantagens-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .vantagens-header i {
+      font-size: 2rem;
+      color: #0066b3;
+      background: #e3efff;
+      padding: 12px;
+      border-radius: 60px;
+    }
+
+    .vantagens-header h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #002d62;
+    }
+
+    .vantagens-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .vantagem-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 0.5rem;
+    }
+
+    .vantagem-icon {
+      background: #eef3ff;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .vantagem-icon i {
+      font-size: 1.5rem;
+      color: #0059b3;
+    }
+
+    .vantagem-text h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #003c8f;
+      margin-bottom: 6px;
+    }
+
+    .vantagem-text p {
+      font-size: 0.9rem;
+      color: #3a6382;
+      line-height: 1.4;
+    }
+
+    /* botão fixo do WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 60px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 100;
+      font-weight: 600;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.05);
+      background-color: #20b859;
+      box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
+    }
+
+    .whatsapp-float i {
+      font-size: 1.8rem;
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #2e5f88;
+      border-top: 1px solid #cddeff;
+      padding-top: 1.8rem;
+    }
+
+    @media (max-width: 700px) {
+      body { padding: 1rem; }
+      .action-btn h3 { font-size: 1.2rem; }
+      .main-header { flex-direction: column; gap: 12px; text-align: center; }
+      .welcome-text h2 { font-size: 1.3rem; }
+      .whatsapp-float { padding: 12px 18px; bottom: 20px; right: 20px; font-size: 0.85rem; }
+      .whatsapp-float i { font-size: 1.4rem; }
+      .vantagens-header h3 { font-size: 1.2rem; }
+      .vantagem-item { flex-direction: column; align-items: center; text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
-<header class="header">
-    <div class="container">
-        <div class="nav">
-            <div class="logo">
-                <i class="fas fa-dumpster"></i>
-                <span>CaçambaFácil</span>
-            </div>
-            <div class="nav-links">
-                <a href="#modelos">Caçambas</a>
-                <a href="#como-funciona">Como funciona</a>
-                <a href="#contato-whats">Fale conosco</a>
-                <a href="https://wa.me/5511921474407?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20alugar%20uma%20caçamba." target="_blank" class="btn-contato"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            </div>
-        </div>
+<div class="portal-container">
+  <!-- cabeçalho -->
+  <div class="main-header">
+    <div class="logo-area">
+      <div class="logo-icon">
+        <i class="fas fa-hand-holding-usd"></i>
+      </div>
+      <div class="logo-text">
+        <h1>Portal Atendimento</h1>
+        <span>soluções financeiras inteligentes</span>
+      </div>
     </div>
-</header>
-
-<main>
-    <!-- Hero sem imagem, apenas texto -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Aluguel de caçambas para entulho com agilidade e segurança</h1>
-                <p>Atendemos obras, reformas, limpezas e muito mais. Entrega e retirada no prazo, sem complicação.</p>
-                <div class="hero-buttons">
-                    <a href="https://wa.me/5511921474407?text=Olá!%20Quero%20alugar%20uma%20caçamba%20e%20gostaria%20de%20informações." target="_blank" class="btn-primario"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
-                    <a href="#modelos" class="btn-secundario"><i class="fas fa-truck"></i> Ver modelos</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modelos de Caçambas -->
-    <section id="modelos" class="section">
-        <div class="container">
-            <h2 class="section-title">Modelos ideais para seu projeto</h2>
-            <p class="section-sub">Escolha o tamanho certo para sua reforma ou obra. Preços transparentes e condições especiais.</p>
-            
-            <!-- Destaque claro sobre período de 5 dias -->
-            <div class="info-banner">
-                <i class="fas fa-calendar-alt"></i>
-                <span>📆 Todos os preços listados abaixo são referentes a <strong>5 DIAS DE LOCAÇÃO</strong> (inclui entrega e retirada).</span>
-                <i class="fas fa-check-circle" style="color:#2b7a4b;"></i>
-            </div>
-
-            <div class="cards">
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-box-open"></i></div>
-                    <h3>5 m³</h3>
-                    <div class="medidas">Pequeno porte</div>
-                    <div class="info-dias"><i class="far fa-clock"></i> 5 dias de locação</div>
-                    <div class="preco">R$ 450 <small>/total</small></div>
-                    <div class="desc">Ideal para limpezas de jardim, pequenas reformas residenciais e sobras de materiais leves.</div>
-                    <button class="btn-card" data-modelo="5m³" data-preco="R$450">Solicitar via WhatsApp</button>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-dumpster"></i></div>
-                    <h3>7 m³</h3>
-                    <div class="medidas">Médio porte</div>
-                    <div class="info-dias"><i class="far fa-clock"></i> 5 dias de locação</div>
-                    <div class="preco">R$ 590 <small>/total</small></div>
-                    <div class="desc">Reformas completas de apartamentos, construção de muros, entulho misto. Muito utilizado.</div>
-                    <button class="btn-card" data-modelo="7m³" data-preco="R$590">Solicitar via WhatsApp</button>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-truck-moving"></i></div>
-                    <h3>10 m³</h3>
-                    <div class="medidas">Grande porte</div>
-                    <div class="info-dias"><i class="far fa-clock"></i> 5 dias de locação</div>
-                    <div class="preco">R$ 780 <small>/total</small></div>
-                    <div class="desc">Obras maiores, demolições, terrenos. Capacidade ampla para entulho pesado e volumoso.</div>
-                    <button class="btn-card" data-modelo="10m³" data-preco="R$780">Solicitar via WhatsApp</button>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-building"></i></div>
-                    <h3>15 m³</h3>
-                    <div class="medidas">Extra / Industrial</div>
-                    <div class="info-dias"><i class="far fa-clock"></i> 5 dias de locação</div>
-                    <div class="preco">R$ 1.050 <small>/total</small></div>
-                    <div class="desc">Construção civil pesada, obras de grande geração de resíduos. Economia no volume.</div>
-                    <button class="btn-card" data-modelo="15m³" data-preco="R$1050">Solicitar via WhatsApp</button>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 32px; font-size: 0.85rem; color: #5b6e8c;">
-                <i class="fas fa-info-circle"></i> Valores para locação de 5 dias corridos. Consulte condições para prazos maiores ou renovação.
-            </p>
-        </div>
-    </section>
-
-    <!-- Como funciona -->
-    <section id="como-funciona" class="steps">
-        <div class="container section">
-            <h2 class="section-title">Como alugar sua caçamba?</h2>
-            <p class="section-sub">Simples, rápido e sem burocracia. Entregamos na sua obra e retiramos no prazo combinado.</p>
-            <div class="steps-grid">
-                <div class="step-item"><div class="step-number">1</div><h4>Escolha o modelo</h4><p>Selecione o tamanho ideal para seu entulho.</p></div>
-                <div class="step-item"><div class="step-number">2</div><h4>Fale conosco</h4><p>Clique no botão do WhatsApp e solicite seu orçamento.</p></div>
-                <div class="step-item"><div class="step-number">3</div><h4>Agendamos a entrega</h4><p>Colocamos a caçamba no local indicado.</p></div>
-                <div class="step-item"><div class="step-number">4</div><h4>Encha e acione a retirada</h4><p>Assim que pronto, retiramos o material com segurança.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO DE CONTATO DIRETO - WHATSAPP -->
-    <section id="contato-whats" class="contato-direto section">
-        <div class="container">
-            <div class="whatsapp-card">
-                <i class="fab fa-whatsapp"></i>
-                <h3>Fale direto com a gente</h3>
-                <p>Atendimento rápido e personalizado. Tire suas dúvidas, peça um orçamento sem compromisso ou agende sua caçamba agora mesmo.</p>
-                <a href="https://wa.me/5511921474407?text=Olá!%20Gostaria%20de%20informações%20sobre%20o%20aluguel%20de%20caçambas." target="_blank" class="btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
-                </a>
-                <div class="telefone-destaque">
-                    <i class="fas fa-phone-alt"></i> (11) 92147-4407
-                </div>
-                <p style="margin-top: 20px; font-size: 0.9rem;">*Clique no botão ou ligue para atendimento comercial</p>
-            </div>
-        </div>
-    </section>
-</main>
-
-<footer class="footer">
-    <div class="container">
-        <div class="footer-content">
-            <div>
-                <div class="footer-logo"><i class="fas fa-dumpster"></i> CaçambaFácil</div>
-                <p style="margin-top: 12px;">Aluguel de caçambas com responsabilidade ambiental e pontualidade.</p>
-                <p style="margin-top: 10px;"><i class="fab fa-whatsapp"></i> <strong>(11) 92147-4407</strong> | <i class="far fa-clock"></i> Seg-Sáb 7h-19h</p>
-            </div>
-            <div class="footer-links">
-                <strong>Links úteis</strong>
-                <a href="#modelos">Nossas caçambas</a>
-                <a href="#como-funciona">Como funciona</a>
-                <a href="#contato-whats">WhatsApp</a>
-            </div>
-            <div class="footer-links">
-                <strong>Atendimento</strong>
-                <a href="https://wa.me/5511921474407" target="_blank"><i class="fab fa-whatsapp"></i> (11) 92147-4407</a>
-                <a href="mailto:contato@cacambafacil.com.br"><i class="far fa-envelope"></i> contato@cacambafacil.com</a>
-                <span><i class="fas fa-map-marker-alt"></i> São Paulo - SP</span>
-            </div>
-        </div>
-        <!-- Destaque: Atendemos todo o Brasil -->
-        <div class="atendimento-nacional">
-            <i class="fas fa-globe-americas"></i> Atendemos todo o Brasil! | Entregamos sua caçamba onde você precisar, com logística capilar em todos os estados.
-        </div>
-        <div class="copyright">
-            &copy; 2026 CaçambaFácil Locação de Caçambas Ltda. Todos os direitos reservados.
-        </div>
+    <div class="atendimento-badge">
+      <i class="fab fa-whatsapp"></i>
+      <span>Atendimento via WhatsApp</span>
     </div>
-</footer>
+  </div>
 
-<!-- Modal de confirmação para os cards -->
-<div id="modalConfirm" class="modal">
-    <div class="modal-content">
-        <i class="fab fa-whatsapp"></i>
-        <h3>Vamos conversar!</h3>
-        <p>Você será redirecionado ao nosso WhatsApp para finalizar a solicitação da caçamba escolhida.</p>
-        <button class="close-modal" id="closeModalBtn">Continuar</button>
+  <!-- boas vindas -->
+  <div class="welcome-card">
+    <div class="welcome-text">
+      <h2>Olá, cliente!</h2>
+      <p>Gerencie seu contrato com agilidade e segurança. Escolha uma opção abaixo e fale conosco pelo WhatsApp.</p>
     </div>
+    <div class="help-icon">
+      <i class="fab fa-whatsapp"></i> Atendimento via WhatsApp
+    </div>
+  </div>
+
+  <!-- grid dos 4 botões principais -->
+  <div class="actions-grid">
+    <div class="action-btn" data-action="quit">
+      <div class="btn-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+      <h3>QUITAR CONTRATO</h3>
+      <p>Liquide seu saldo devedor com condições especiais</p>
+    </div>
+    <div class="action-btn" data-action="antecipar">
+      <div class="btn-icon"><i class="fas fa-calendar-check"></i></div>
+      <h3>ANTECIPAR PARCELAS</h3>
+      <p>Pague parcelas futuras com desconto de juros</p>
+    </div>
+    <div class="action-btn" data-action="segunda-via">
+      <div class="btn-icon"><i class="fas fa-receipt"></i></div>
+      <h3>2VIA</h3>
+      <p>Obtenha segunda via do boleto / fatura</p>
+    </div>
+    <div class="action-btn" data-action="regularizar">
+      <div class="btn-icon"><i class="fas fa-clock"></i></div>
+      <h3>REGULARIZAR PARCELAS EM ATRASO</h3>
+      <p>Negocie débitos e renegocie seu contrato</p>
+    </div>
+  </div>
+
+  <!-- resumo do contrato -->
+  <div class="status-card">
+    <h4><i class="fas fa-chart-line"></i> Resumo do contrato (exemplo)</h4>
+    <ul class="simulated-list">
+      <li><i class="fas fa-id-card"></i> Contrato: <strong>FIN-9876-XPTO</strong> | Produto: Financiamento</li>
+      <li><i class="fas fa-dollar-sign"></i> Saldo devedor atual: <strong>R$ 8.742,50</strong></li>
+      <li><i class="fas fa-calendar-alt"></i> Próxima parcela: Vencimento 10/06/2026 - R$ 389,70</li>
+      <li><i class="fas fa-exclamation-triangle"></i> Parcelas em atraso: <strong style="color:#c7452c;">2</strong> (regularize já!)</li>
+    </ul>
+  </div>
+
+  <!-- SEÇÃO DE VANTAGENS: Quitar contrato antecipadamente -->
+  <div class="vantagens-section">
+    <div class="vantagens-header">
+      <i class="fas fa-chart-line"></i>
+      <h3>Vantagens de quitar seu contrato antecipadamente</h3>
+    </div>
+    <div class="vantagens-grid">
+      <div class="vantagem-item">
+        <div class="vantagem-icon">
+          <i class="fas fa-percent"></i>
+        </div>
+        <div class="vantagem-text">
+          <h4>Desconto em juros</h4>
+          <p>Ao quitar antes do prazo, você paga apenas os juros até a data da liquidação, com redução significativa do valor total.</p>
+        </div>
+      </div>
+      <div class="vantagem-item">
+        <div class="vantagem-icon">
+          <i class="fas fa-file-signature"></i>
+        </div>
+        <div class="vantagem-text">
+          <h4>Baixa da dívida</h4>
+          <p>Seu nome fica livre de qualquer pendência e o contrato é encerrado oficialmente, trazendo tranquilidade financeira.</p>
+        </div>
+      </div>
+      <div class="vantagem-item">
+        <div class="vantagem-icon">
+          <i class="fas fa-chart-simple"></i>
+        </div>
+        <div class="vantagem-text">
+          <h4>Liberação de limite</h4>
+          <p>Com o contrato quitado, você recupera sua capacidade de crédito e pode contratar novos produtos com melhores condições.</p>
+        </div>
+      </div>
+      <div class="vantagem-item">
+        <div class="vantagem-icon">
+          <i class="fas fa-hand-holding-heart"></i>
+        </div>
+        <div class="vantagem-text">
+          <h4>Planejamento financeiro</h4>
+          <p>Elimine parcelas futuras do seu orçamento mensal e tenha mais liberdade para investir em outros objetivos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <i class="fab fa-whatsapp"></i> Atendimento via WhatsApp · <i class="fas fa-lock"></i> Ambiente seguro e criptografado
+  </footer>
+</div>
+
+<!-- Botão flutuante do WhatsApp -->
+<div class="whatsapp-float" id="whatsappFloatBtn">
+  <i class="fab fa-whatsapp"></i>
+  <span>Fale conosco</span>
 </div>
 
 <script>
-    // Todos os botões dos cards abrem o WhatsApp com mensagem personalizada
-    const botoesCards = document.querySelectorAll('.btn-card');
-    const modal = document.getElementById('modalConfirm');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-
-    // Função para redirecionar ao WhatsApp com texto pré-definido
-    function redirectToWhatsApp(modelo, preco) {
-        const telefone = '5511921474407';
-        let message = `Olá! Gostaria de solicitar um orçamento para a caçamba de ${modelo} - ${preco} referente a 5 dias de locação. Poderia me passar mais informações sobre disponibilidade e entrega?`;
-        const encodedMessage = encodeURIComponent(message);
-        window.open(`https://wa.me/${telefone}?text=${encodedMessage}`, '_blank');
+  // Número do WhatsApp no formato internacional (sem espaços, apenas números)
+  const whatsappNumber = "553221201403"; // (32) 21201403 -> 55 + 32 + 21201403
+  
+  // Função para abrir WhatsApp com mensagem personalizada
+  function openWhatsApp(message) {
+    const encodedMessage = encodeURIComponent(message);
+    const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    window.open(url, '_blank');
+  }
+  
+  // Mapeamento das ações para mensagens personalizadas
+  const actionMessages = {
+    quit: {
+      message: "Olá! Gostaria de solicitar a QUITAÇÃO do meu contrato. Poderia me ajudar com as condições e valores?"
+    },
+    antecipar: {
+      message: "Olá! Tenho interesse em ANTECIPAR parcelas do meu contrato. Gostaria de saber os descontos e condições."
+    },
+    "segunda-via": {
+      message: "Olá! Preciso da 2ª VIA do boleto/fatura do meu contrato. Podem me enviar?"
+    },
+    regularizar: {
+      message: "Olá! Estou com parcelas em ATRASO e gostaria de REGULARIZAR minha situação. Podem me ajudar com uma negociação?"
     }
-
-    // Evento para cada card
-    botoesCards.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            const modelo = this.getAttribute('data-modelo');
-            const preco = this.getAttribute('data-preco');
-            // Exibe modal de confirmação
-            modal.style.display = 'flex';
-            // Armazena os dados para usar no fechamento do modal
-            modal.dataset.modelo = modelo;
-            modal.dataset.preco = preco;
-        });
+  };
+  
+  // Adiciona evento de clique a todos os botões de ação
+  document.querySelectorAll('.action-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const action = btn.getAttribute('data-action');
+      
+      if (action && actionMessages[action]) {
+        // Abre WhatsApp com a mensagem específica da ação
+        openWhatsApp(actionMessages[action].message);
+      } else {
+        // Mensagem padrão caso não tenha mapeamento
+        openWhatsApp("Olá! Gostaria de mais informações sobre os serviços do Portal de Atendimento.");
+      }
     });
-
-    // Ao clicar em continuar no modal, redireciona para o WhatsApp
-    function confirmAndRedirect() {
-        if (modal.dataset.modelo && modal.dataset.preco) {
-            redirectToWhatsApp(modal.dataset.modelo, modal.dataset.preco);
-        } else {
-            redirectToWhatsApp('caçamba', 'valores especiais');
-        }
-        modal.style.display = 'none';
-        delete modal.dataset.modelo;
-        delete modal.dataset.preco;
-    }
-
-    closeModalBtn.addEventListener('click', confirmAndRedirect);
-    
-    // Fechar modal se clicar fora
-    window.addEventListener('click', function(e) {
-        if(e.target === modal) {
-            confirmAndRedirect();
-        }
+  });
+  
+  // Botão flutuante do WhatsApp
+  const whatsappFloat = document.getElementById('whatsappFloatBtn');
+  if (whatsappFloat) {
+    whatsappFloat.addEventListener('click', () => {
+      openWhatsApp("Olá! Gostaria de atendimento sobre os serviços financeiros.");
     });
-    
-    // Garantir que todos os links do WhatsApp tenham o número correto
-    const allWhatsLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]');
-    allWhatsLinks.forEach(link => {
-        let href = link.getAttribute('href');
-        if(href && (href.includes('wa.me') || href.includes('api.whatsapp'))) {
-            if(!href.includes('5511921474407')) {
-                let newHref = href.replace(/wa.me\/\d+/, 'wa.me/5511921474407');
-                newHref = newHref.replace(/api.whatsapp.com\/send\?phone=\d+/, 'api.whatsapp.com/send?phone=5511921474407');
-                link.setAttribute('href', newHref);
-            }
-        }
+  }
+  
+  // Também adiciona clique ao badge do cabeçalho
+  const headerBadge = document.querySelector('.atendimento-badge');
+  if (headerBadge) {
+    headerBadge.addEventListener('click', () => {
+      openWhatsApp("Olá! Gostaria de atendimento.");
     });
-    
-    // Atualizar botão do hero e nav
-    const heroBtn = document.querySelector('.hero-buttons .btn-primario');
-    if(heroBtn && heroBtn.getAttribute('href')) {
-        if(!heroBtn.getAttribute('href').includes('5511921474407')) {
-            heroBtn.setAttribute('href', 'https://wa.me/5511921474407?text=Olá!%20Quero%20alugar%20uma%20caçamba%20e%20gostaria%20de%20informações.');
-        }
-    }
-    
-    const navWhatsBtn = document.querySelector('.nav-links .btn-contato');
-    if(navWhatsBtn && navWhatsBtn.getAttribute('href')) {
-        if(!navWhatsBtn.getAttribute('href').includes('5511921474407')) {
-            navWhatsBtn.setAttribute('href', 'https://wa.me/5511921474407?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20alugar%20uma%20caçamba.');
-        }
-    }
-    
-    // Smooth scroll para âncoras
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if(href === "#" || href === "") return;
-            const target = document.querySelector(href);
-            if(target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
+  }
 </script>
 </body>
 </html>
+
