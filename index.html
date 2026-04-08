@@ -182,6 +182,7 @@
             transition: all 0.25s ease;
             text-align: center;
             border: 1px solid #e2e8f0;
+            position: relative;
         }
         .card:hover {
             transform: translateY(-6px);
@@ -217,6 +218,22 @@
             color: #5b6e8c;
             margin: 16px 0;
             font-size: 0.9rem;
+        }
+        /* Destaque para informação de 5 dias */
+        .info-dias {
+            background-color: #fef9e3;
+            color: #b45309;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 40px;
+            display: inline-block;
+            margin-bottom: 10px;
+            letter-spacing: 0.3px;
+        }
+        .info-dias i {
+            font-size: 0.7rem;
+            margin-right: 4px;
         }
         .btn-card {
             background-color: #f1f5f9;
@@ -426,6 +443,36 @@
             margin-top: 20px;
             cursor: pointer;
         }
+        /* Banner adicional de informação sobre 5 dias */
+        .info-banner {
+            background-color: #e6f7f0;
+            border-left: 6px solid #2b7a4b;
+            padding: 16px 24px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .info-banner i {
+            font-size: 2rem;
+            color: #2b7a4b;
+        }
+        .info-banner span {
+            font-weight: 600;
+            color: #1a4d3a;
+            font-size: 1rem;
+        }
+        .info-banner strong {
+            color: #b45309;
+            background: #fff1e0;
+            padding: 5px 12px;
+            border-radius: 40px;
+            margin: 0 5px;
+        }
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -456,6 +503,11 @@
             }
             .telefone-destaque {
                 font-size: 1.2rem;
+            }
+            .info-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 16px;
             }
         }
     </style>
@@ -499,12 +551,21 @@
         <div class="container">
             <h2 class="section-title">Modelos ideais para seu projeto</h2>
             <p class="section-sub">Escolha o tamanho certo para sua reforma ou obra. Preços transparentes e condições especiais.</p>
+            
+            <!-- Destaque claro sobre período de 5 dias -->
+            <div class="info-banner">
+                <i class="fas fa-calendar-alt"></i>
+                <span>📆 Todos os preços listados abaixo são referentes a <strong>5 DIAS DE LOCAÇÃO</strong> (inclui entrega e retirada).</span>
+                <i class="fas fa-check-circle" style="color:#2b7a4b;"></i>
+            </div>
+
             <div class="cards">
                 <div class="card">
                     <div class="card-icon"><i class="fas fa-box-open"></i></div>
                     <h3>5 m³</h3>
                     <div class="medidas">Pequeno porte</div>
-                    <div class="preco">R$ 450 <small>/diária</small></div>
+                    <div class="info-dias"><i class="far fa-clock"></i> 5 dias de locação</div>
+                    <div class="preco">R$ 450 <small>/total</small></div>
                     <div class="desc">Ideal para limpezas de jardim, pequenas reformas residenciais e sobras de materiais leves.</div>
                     <button class="btn-card" data-modelo="5m³" data-preco="R$450">Solicitar via WhatsApp</button>
                 </div>
@@ -512,7 +573,8 @@
                     <div class="card-icon"><i class="fas fa-dumpster"></i></div>
                     <h3>7 m³</h3>
                     <div class="medidas">Médio porte</div>
-                    <div class="preco">R$ 590 <small>/diária</small></div>
+                    <div class="info-dias"><i class="far fa-clock"></i> 5 dias de locação</div>
+                    <div class="preco">R$ 590 <small>/total</small></div>
                     <div class="desc">Reformas completas de apartamentos, construção de muros, entulho misto. Muito utilizado.</div>
                     <button class="btn-card" data-modelo="7m³" data-preco="R$590">Solicitar via WhatsApp</button>
                 </div>
@@ -520,7 +582,8 @@
                     <div class="card-icon"><i class="fas fa-truck-moving"></i></div>
                     <h3>10 m³</h3>
                     <div class="medidas">Grande porte</div>
-                    <div class="preco">R$ 780 <small>/diária</small></div>
+                    <div class="info-dias"><i class="far fa-clock"></i> 5 dias de locação</div>
+                    <div class="preco">R$ 780 <small>/total</small></div>
                     <div class="desc">Obras maiores, demolições, terrenos. Capacidade ampla para entulho pesado e volumoso.</div>
                     <button class="btn-card" data-modelo="10m³" data-preco="R$780">Solicitar via WhatsApp</button>
                 </div>
@@ -528,11 +591,15 @@
                     <div class="card-icon"><i class="fas fa-building"></i></div>
                     <h3>15 m³</h3>
                     <div class="medidas">Extra / Industrial</div>
-                    <div class="preco">R$ 1.050 <small>/diária</small></div>
+                    <div class="info-dias"><i class="far fa-clock"></i> 5 dias de locação</div>
+                    <div class="preco">R$ 1.050 <small>/total</small></div>
                     <div class="desc">Construção civil pesada, obras de grande geração de resíduos. Economia no volume.</div>
                     <button class="btn-card" data-modelo="15m³" data-preco="R$1050">Solicitar via WhatsApp</button>
                 </div>
             </div>
+            <p style="text-align: center; margin-top: 32px; font-size: 0.85rem; color: #5b6e8c;">
+                <i class="fas fa-info-circle"></i> Valores para locação de 5 dias corridos. Consulte condições para prazos maiores ou renovação.
+            </p>
         </div>
     </section>
 
@@ -619,7 +686,7 @@
     // Função para redirecionar ao WhatsApp com texto pré-definido
     function redirectToWhatsApp(modelo, preco) {
         const telefone = '5511921474407';
-        let message = `Olá! Gostaria de solicitar um orçamento para a caçamba de ${modelo} - ${preco}/diária. Poderia me passar mais informações sobre disponibilidade e entrega?`;
+        let message = `Olá! Gostaria de solicitar um orçamento para a caçamba de ${modelo} - ${preco} referente a 5 dias de locação. Poderia me passar mais informações sobre disponibilidade e entrega?`;
         const encodedMessage = encodeURIComponent(message);
         window.open(`https://wa.me/${telefone}?text=${encodedMessage}`, '_blank');
     }
