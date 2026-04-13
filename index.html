@@ -1,544 +1,181 @@
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Portal de Atendimento | Soluções Financeiras</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAX ENGENHARIA LTDA</title>
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(145deg, #eef2ff 0%, #e0e7f7 100%);
-      color: #001a3b;
-      line-height: 1.4;
-      min-height: 100vh;
-      padding: 2rem 1.5rem;
-    }
+    <meta name="description" content="MAX ENGENHARIA LTDA - Soluções completas em engenharia, instalações elétricas e serviços técnicos em São Paulo.">
 
-    .portal-container {
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-
-    /* cabeçalho */
-    .main-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-      background: white;
-      padding: 1rem 2rem;
-      border-radius: 32px;
-      box-shadow: 0 8px 20px rgba(0, 32, 64, 0.08);
-      border: 1px solid rgba(0, 94, 157, 0.15);
-    }
-
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-icon {
-      background: #003c8f;
-      width: 48px;
-      height: 48px;
-      border-radius: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 8px rgba(0,60,143,0.2);
-    }
-
-    .logo-icon i {
-      font-size: 28px;
-      color: white;
-    }
-
-    .logo-text h1 {
-      font-size: 1.7rem;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      background: linear-gradient(135deg, #003c8f 0%, #0066b3 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .logo-text span {
-      font-size: 0.8rem;
-      color: #1e5a8a;
-      font-weight: 500;
-      display: block;
-    }
-
-    .atendimento-badge {
-      background: #25D366;
-      padding: 8px 20px;
-      border-radius: 60px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 500;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    .atendimento-badge i {
-      color: white;
-    }
-
-    .welcome-card {
-      background: white;
-      border-radius: 32px;
-      padding: 1.8rem 2rem;
-      margin-bottom: 2.5rem;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-      border-left: 6px solid #0066b3;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .welcome-text h2 {
-      font-size: 1.7rem;
-      font-weight: 600;
-      color: #00264d;
-    }
-
-    .welcome-text p {
-      color: #2c5a7a;
-      margin-top: 6px;
-    }
-
-    .help-icon {
-      background: #eef2ff;
-      border-radius: 60px;
-      padding: 8px 18px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: #005a9c;
-    }
-
-    /* grid dos botões */
-    .actions-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.8rem;
-      margin-bottom: 3rem;
-    }
-
-    .action-btn {
-      background: white;
-      border-radius: 28px;
-      padding: 1.6rem 0.8rem;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.04);
-      border: 1px solid #dce5f5;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .action-btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 30px -12px rgba(0, 60, 143, 0.25);
-      border-color: #25D366;
-      background: #fbfeff;
-    }
-
-    .btn-icon {
-      width: 70px;
-      height: 70px;
-      background: linear-gradient(145deg, #eef2ff, #e3eafc);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      color: #0059b3;
-      transition: 0.2s;
-    }
-
-    .action-btn:hover .btn-icon {
-      background: #25D366;
-      color: white;
-    }
-
-    .action-btn h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #002d62;
-    }
-
-    .action-btn p {
-      font-size: 0.85rem;
-      color: #3e6b8c;
-      max-width: 180px;
-      margin: 0 auto;
-    }
-
-    /* card de resumo do contrato */
-    .status-card {
-      background: white;
-      border-radius: 28px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-      border: 1px solid #e2edff;
-      width: 100%;
-    }
-
-    .status-card h4 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: #003c8f;
-      border-left: 4px solid #0066b3;
-      padding-left: 12px;
-    }
-
-    .simulated-list {
-      list-style: none;
-    }
-
-    .simulated-list li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 0;
-      border-bottom: 1px solid #ecf3fa;
-      color: #1f4662;
-    }
-
-    .simulated-list i {
-      width: 28px;
-      color: #0070c0;
-    }
-
-    /* nova seção de vantagens - quitar contrato antecipadamente */
-    .vantagens-section {
-      background: linear-gradient(135deg, #ffffff 0%, #f0f6ff 100%);
-      border-radius: 28px;
-      padding: 1.8rem 2rem;
-      margin-bottom: 2rem;
-      border: 1px solid #cde0fe;
-      box-shadow: 0 8px 20px rgba(0, 60, 143, 0.08);
-    }
-
-    .vantagens-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 1.5rem;
-    }
-
-    .vantagens-header i {
-      font-size: 2rem;
-      color: #0066b3;
-      background: #e3efff;
-      padding: 12px;
-      border-radius: 60px;
-    }
-
-    .vantagens-header h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #002d62;
-    }
-
-    .vantagens-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .vantagem-item {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      padding: 0.5rem;
-    }
-
-    .vantagem-icon {
-      background: #eef3ff;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .vantagem-icon i {
-      font-size: 1.5rem;
-      color: #0059b3;
-    }
-
-    .vantagem-text h4 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #003c8f;
-      margin-bottom: 6px;
-    }
-
-    .vantagem-text p {
-      font-size: 0.9rem;
-      color: #3a6382;
-      line-height: 1.4;
-    }
-
-    /* botão fixo do WhatsApp */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: #25D366;
-      color: white;
-      border-radius: 60px;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      z-index: 100;
-      font-weight: 600;
-      border: none;
-      font-size: 1rem;
-    }
-
-    .whatsapp-float:hover {
-      transform: scale(1.05);
-      background-color: #20b859;
-      box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
-    }
-
-    .whatsapp-float i {
-      font-size: 1.8rem;
-    }
-
-    footer {
-      margin-top: 2rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #2e5f88;
-      border-top: 1px solid #cddeff;
-      padding-top: 1.8rem;
-    }
-
-    @media (max-width: 700px) {
-      body { padding: 1rem; }
-      .action-btn h3 { font-size: 1.2rem; }
-      .main-header { flex-direction: column; gap: 12px; text-align: center; }
-      .welcome-text h2 { font-size: 1.3rem; }
-      .whatsapp-float { padding: 12px 18px; bottom: 20px; right: 20px; font-size: 0.85rem; }
-      .whatsapp-float i { font-size: 1.4rem; }
-      .vantagens-header h3 { font-size: 1.2rem; }
-      .vantagem-item { flex-direction: column; align-items: center; text-align: center; }
-    }
-  </style>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f7fa;
+            line-height: 1.6;
+        }
+        header {
+            background: #0d47a1;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+        .card {
+            background: #fff;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        h2 {
+            color: #0d47a1;
+            margin-top: 0;
+        }
+        footer {
+            background: #1a1a1a;
+            color: #ccc;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+        strong {
+            color: #333;
+        }
+    </style>
 </head>
 <body>
 
-<div class="portal-container">
-  <!-- cabeçalho -->
-  <div class="main-header">
-    <div class="logo-area">
-      <div class="logo-icon">
-        <i class="fas fa-hand-holding-usd"></i>
-      </div>
-      <div class="logo-text">
-        <h1>Portal Atendimento</h1>
-        <span>soluções financeiras inteligentes</span>
-      </div>
-    </div>
-    <div class="atendimento-badge">
-      <i class="fab fa-whatsapp"></i>
-      <span>Atendimento via WhatsApp</span>
-    </div>
-  </div>
+<header>
+    <h1>MAX ENGENHARIA LTDA</h1>
+    <p>Excelência em Engenharia, Instalações e Soluções Técnicas</p>
+</header>
 
-  <!-- boas vindas -->
-  <div class="welcome-card">
-    <div class="welcome-text">
-      <h2>Olá, cliente!</h2>
-      <p>Gerencie seu contrato com agilidade e segurança. Escolha uma opção abaixo e fale conosco pelo WhatsApp.</p>
-    </div>
-    <div class="help-icon">
-      <i class="fab fa-whatsapp"></i> Atendimento via WhatsApp
-    </div>
-  </div>
+<div class="container">
 
-  <!-- grid dos 4 botões principais -->
-  <div class="actions-grid">
-    <div class="action-btn" data-action="quit">
-      <div class="btn-icon"><i class="fas fa-file-invoice-dollar"></i></div>
-      <h3>QUITAR CONTRATO</h3>
-      <p>Liquide seu saldo devedor com condições especiais</p>
+    <div class="card">
+        <h2>Institucional</h2>
+        <p>
+            A <strong>MAX ENGENHARIA LTDA</strong> é uma empresa consolidada no setor de engenharia,
+            atuando com foco em qualidade, segurança e inovação. Com sede em São Paulo, a empresa
+            atende clientes de diversos segmentos, oferecendo soluções técnicas eficientes e
+            personalizadas.
+        </p>
+        <p>
+            Nosso compromisso é entregar serviços com alto padrão técnico, respeitando prazos,
+            normas regulatórias e as necessidades específicas de cada cliente.
+        </p>
     </div>
-    <div class="action-btn" data-action="antecipar">
-      <div class="btn-icon"><i class="fas fa-calendar-check"></i></div>
-      <h3>ANTECIPAR PARCELAS</h3>
-      <p>Pague parcelas futuras com desconto de juros</p>
-    </div>
-    <div class="action-btn" data-action="segunda-via">
-      <div class="btn-icon"><i class="fas fa-receipt"></i></div>
-      <h3>2VIA</h3>
-      <p>Obtenha segunda via do boleto / fatura</p>
-    </div>
-    <div class="action-btn" data-action="regularizar">
-      <div class="btn-icon"><i class="fas fa-clock"></i></div>
-      <h3>REGULARIZAR PARCELAS EM ATRASO</h3>
-      <p>Negocie débitos e renegocie seu contrato</p>
-    </div>
-  </div>
 
-  <!-- resumo do contrato -->
-  <div class="status-card">
-    <h4><i class="fas fa-chart-line"></i> Resumo do contrato (exemplo)</h4>
-    <ul class="simulated-list">
-      <li><i class="fas fa-id-card"></i> Contrato: <strong>FIN-9876-XPTO</strong> | Produto: Financiamento</li>
-      <li><i class="fas fa-dollar-sign"></i> Saldo devedor atual: <strong>R$ 8.742,50</strong></li>
-      <li><i class="fas fa-calendar-alt"></i> Próxima parcela: Vencimento 10/06/2026 - R$ 389,70</li>
-      <li><i class="fas fa-exclamation-triangle"></i> Parcelas em atraso: <strong style="color:#c7452c;">2</strong> (regularize já!)</li>
-    </ul>
-  </div>
-
-  <!-- SEÇÃO DE VANTAGENS: Quitar contrato antecipadamente -->
-  <div class="vantagens-section">
-    <div class="vantagens-header">
-      <i class="fas fa-chart-line"></i>
-      <h3>Vantagens de quitar seu contrato antecipadamente</h3>
+    <div class="card">
+        <h2>Missão, Visão e Valores</h2>
+        <p><strong>Missão:</strong> Fornecer soluções em engenharia com excelência, garantindo segurança, eficiência e satisfação dos clientes.</p>
+        <p><strong>Visão:</strong> Ser referência no mercado de engenharia no Brasil, reconhecida pela qualidade e confiabilidade dos serviços prestados.</p>
+        <p><strong>Valores:</strong></p>
+        <ul>
+            <li>Ética e transparência</li>
+            <li>Compromisso com resultados</li>
+            <li>Responsabilidade técnica</li>
+            <li>Respeito às normas e legislações</li>
+            <li>Foco no cliente</li>
+        </ul>
     </div>
-    <div class="vantagens-grid">
-      <div class="vantagem-item">
-        <div class="vantagem-icon">
-          <i class="fas fa-percent"></i>
-        </div>
-        <div class="vantagem-text">
-          <h4>Desconto em juros</h4>
-          <p>Ao quitar antes do prazo, você paga apenas os juros até a data da liquidação, com redução significativa do valor total.</p>
-        </div>
-      </div>
-      <div class="vantagem-item">
-        <div class="vantagem-icon">
-          <i class="fas fa-file-signature"></i>
-        </div>
-        <div class="vantagem-text">
-          <h4>Baixa da dívida</h4>
-          <p>Seu nome fica livre de qualquer pendência e o contrato é encerrado oficialmente, trazendo tranquilidade financeira.</p>
-        </div>
-      </div>
-      <div class="vantagem-item">
-        <div class="vantagem-icon">
-          <i class="fas fa-chart-simple"></i>
-        </div>
-        <div class="vantagem-text">
-          <h4>Liberação de limite</h4>
-          <p>Com o contrato quitado, você recupera sua capacidade de crédito e pode contratar novos produtos com melhores condições.</p>
-        </div>
-      </div>
-      <div class="vantagem-item">
-        <div class="vantagem-icon">
-          <i class="fas fa-hand-holding-heart"></i>
-        </div>
-        <div class="vantagem-text">
-          <h4>Planejamento financeiro</h4>
-          <p>Elimine parcelas futuras do seu orçamento mensal e tenha mais liberdade para investir em outros objetivos.</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <footer>
-    <i class="fab fa-whatsapp"></i> Atendimento via WhatsApp · <i class="fas fa-lock"></i> Ambiente seguro e criptografado
-  </footer>
+    <div class="card">
+        <h2>Nossos Serviços</h2>
+        <p>
+            Atuamos em diversas áreas da engenharia, com destaque para:
+        </p>
+        <ul>
+            <li>Instalações elétricas residenciais, comerciais e industriais</li>
+            <li>Manutenção preventiva e corretiva</li>
+            <li>Execução de projetos de engenharia</li>
+            <li>Consultoria técnica especializada</li>
+            <li>Adequações às normas técnicas (NRs e ABNT)</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Diferenciais</h2>
+        <ul>
+            <li>Equipe qualificada e experiente</li>
+            <li>Atendimento personalizado</li>
+            <li>Compromisso com prazos</li>
+            <li>Uso de boas práticas de engenharia</li>
+            <li>Atuação conforme normas vigentes</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Dados Empresariais</h2>
+        <p><strong>Razão Social:</strong> MAX ENGENHARIA LTDA</p>
+        <p><strong>CNPJ:</strong> 72.920.481/0001-64</p>
+        <p><strong>Situação:</strong> Ativa</p>
+        <p><strong>Atividade Principal:</strong> Instalação e manutenção elétrica</p>
+    </div>
+
+    <div class="card">
+        <h2>Endereço</h2>
+        <p>
+            Rua Conceição Marcondes Silva, 175<br>
+            Vila Congonhas<br>
+            São Paulo - SP<br>
+            CEP: 04624-090<br>
+            Brasil
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Contato</h2>
+        <p><strong>Email:</strong> eduardo.amaral@superig.com.br</p>
+        <p><strong>Telefone:</strong> (11) 98275-4925</p>
+        <p><strong>Telefone adicional:</strong> (11) 3782-5857</p>
+        <p>
+            Atendimento em horário comercial. Entre em contato para orçamentos
+            e informações sobre nossos serviços.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Conformidade Legal</h2>
+        <p>
+            A MAX ENGENHARIA LTDA atua em conformidade com todas as exigências legais
+            e regulatórias aplicáveis ao setor de engenharia, incluindo normas técnicas
+            brasileiras (ABNT) e regulamentações de segurança do trabalho.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Política de Privacidade</h2>
+        <p>
+            Respeitamos a privacidade dos usuários e protegemos os dados pessoais conforme
+            a Lei Geral de Proteção de Dados (LGPD). Informações coletadas são utilizadas
+            exclusivamente para fins de contato e prestação de serviços.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Termos de Uso</h2>
+        <p>
+            Ao acessar este site, o usuário concorda com os termos aqui estabelecidos.
+            As informações disponibilizadas têm caráter informativo e podem ser alteradas
+            sem aviso prévio.
+        </p>
+    </div>
+
 </div>
 
-<!-- Botão flutuante do WhatsApp -->
-<div class="whatsapp-float" id="whatsappFloatBtn">
-  <i class="fab fa-whatsapp"></i>
-  <span>Fale conosco</span>
-</div>
+<footer>
+    <p>
+        © 2026 MAX ENGENHARIA LTDA<br>
+        CNPJ: 72.920.481/0001-64<br>
+        Todos os direitos reservados
+    </p>
+</footer>
 
-<script>
-  // Número do WhatsApp no formato internacional (sem espaços, apenas números)
-  const whatsappNumber = "553221201403"; // (32) 21201403 -> 55 + 32 + 21201403
-  
-  // Função para abrir WhatsApp com mensagem personalizada
-  function openWhatsApp(message) {
-    const encodedMessage = encodeURIComponent(message);
-    const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-    window.open(url, '_blank');
-  }
-  
-  // Mapeamento das ações para mensagens personalizadas
-  const actionMessages = {
-    quit: {
-      message: "Olá! Gostaria de solicitar a QUITAÇÃO do meu contrato. Poderia me ajudar com as condições e valores?"
-    },
-    antecipar: {
-      message: "Olá! Tenho interesse em ANTECIPAR parcelas do meu contrato. Gostaria de saber os descontos e condições."
-    },
-    "segunda-via": {
-      message: "Olá! Preciso da 2ª VIA do boleto/fatura do meu contrato. Podem me enviar?"
-    },
-    regularizar: {
-      message: "Olá! Estou com parcelas em ATRASO e gostaria de REGULARIZAR minha situação. Podem me ajudar com uma negociação?"
-    }
-  };
-  
-  // Adiciona evento de clique a todos os botões de ação
-  document.querySelectorAll('.action-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const action = btn.getAttribute('data-action');
-      
-      if (action && actionMessages[action]) {
-        // Abre WhatsApp com a mensagem específica da ação
-        openWhatsApp(actionMessages[action].message);
-      } else {
-        // Mensagem padrão caso não tenha mapeamento
-        openWhatsApp("Olá! Gostaria de mais informações sobre os serviços do Portal de Atendimento.");
-      }
-    });
-  });
-  
-  // Botão flutuante do WhatsApp
-  const whatsappFloat = document.getElementById('whatsappFloatBtn');
-  if (whatsappFloat) {
-    whatsappFloat.addEventListener('click', () => {
-      openWhatsApp("Olá! Gostaria de atendimento sobre os serviços financeiros.");
-    });
-  }
-  
-  // Também adiciona clique ao badge do cabeçalho
-  const headerBadge = document.querySelector('.atendimento-badge');
-  if (headerBadge) {
-    headerBadge.addEventListener('click', () => {
-      openWhatsApp("Olá! Gostaria de atendimento.");
-    });
-  }
-</script>
 </body>
 </html>
-
