@@ -1,537 +1,836 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-PT">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>SuperFarma · 24h · Envio Nacional · Sem Burocracia</title>
-  <!-- Fonte suave e profissional -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <!-- Ícones minimalistas (Font Awesome) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Móveis Planejados - Qualidade e Design Exclusivo</title>
+    <meta name="description" content="Móveis planejados sob medida com design exclusivo, qualidade garantida e entrega rápida. Transforme sua casa com nossos projetos personalizados.">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(145deg, #f8fbfe 0%, #eef3f7 100%);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      color: #1a2e3b;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0f1a;
+            color: #e0e0e0;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
 
-    .card {
-      max-width: 1000px;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-radius: 48px;
-      box-shadow: 0 30px 50px rgba(0, 20, 30, 0.08), 0 10px 20px rgba(0, 0, 0, 0.02);
-      padding: 48px 40px;
-      border: 1px solid rgba(46, 139, 87, 0.15);
-      transition: all 0.2s ease;
-    }
+        h1, h2, h3, h4, h5, .site-title, .btn, .section-title {
+            font-family: 'Poppins', sans-serif;
+        }
 
-    @media (max-width: 600px) {
-      body { padding: 12px; }
-      .card { padding: 32px 22px; border-radius: 36px; }
-    }
+        :root {
+            --primary: #D4A056;
+            --primary-dark: #b8863a;
+            --primary-light: #e8c48a;
+            --dark-bg: #0a0f1a;
+            --card-bg: #141a26;
+            --border-color: #2a3441;
+            --text-muted: #9aa3b0;
+            --white: #fff;
+        }
 
-    /* Logo e cabeçalho */
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
 
-    .brand-icon {
-      background: #0e6245;
-      width: 56px;
-      height: 56px;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 28px;
-      box-shadow: 0 12px 18px -6px rgba(14, 98, 69, 0.2);
-    }
+        /* Navbar */
+        .navbar-custom {
+            background-color: #0c111ce6;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 160, 86, 0.2);
+            padding: 15px 0;
+            transition: all 0.3s;
+        }
 
-    .brand-text h1 {
-      font-weight: 700;
-      font-size: 2.2rem;
-      letter-spacing: -0.02em;
-      color: #0b3b2c;
-      line-height: 1.1;
-    }
+        .site-title a {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
 
-    .brand-text .tagline {
-      font-weight: 500;
-      font-size: 1rem;
-      color: #2c5e4a;
-      margin-top: 6px;
-      opacity: 0.85;
-    }
+        .site-title a span {
+            color: var(--primary);
+        }
 
-    /* Linha divisória sutil */
-    .divider {
-      height: 2px;
-      background: linear-gradient(90deg, #b7dac9, #cde5d8, #e3f0ea, #ffffff);
-      margin: 28px 0 36px 0;
-      border-radius: 10px;
-    }
+        .site-title a:hover {
+            color: var(--primary);
+        }
 
-    /* Diferenciais — os 3 pilares principais */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      margin-bottom: 20px;
-    }
+        .site-description {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
 
-    @media (max-width: 700px) {
-      .features-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-    }
+        .btn-wa-header {
+            background: #25D366;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.2s;
+            border: none;
+        }
 
-    .feature-item {
-      background: white;
-      border-radius: 28px;
-      padding: 28px 20px 20px;
-      text-align: center;
-      box-shadow: 0 8px 18px rgba(0, 20, 10, 0.04);
-      border: 1px solid #dff0e7;
-      transition: transform 0.2s, box-shadow 0.25s;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
+        .btn-wa-header:hover {
+            background: #20b859;
+            transform: scale(1.02);
+        }
 
-    .feature-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 22px 30px -8px rgba(16, 80, 60, 0.12);
-      border-color: #b0dfca;
-    }
+        /* Banner */
+        .bcslider-section {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
 
-    .feature-icon {
-      font-size: 42px;
-      color: #0e6245;
-      margin-bottom: 18px;
-    }
+        .home-section {
+            background-size: cover;
+            background-position: center;
+            padding: 180px 0;
+            position: relative;
+            z-index: 1;
+        }
 
-    .feature-item h3 {
-      font-weight: 700;
-      font-size: 1.7rem;
-      letter-spacing: -0.01em;
-      margin-bottom: 12px;
-      color: #0a2e23;
-    }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 100%);
+            z-index: 1;
+        }
 
-    .feature-item p {
-      font-size: 1.05rem;
-      line-height: 1.5;
-      color: #2b4f40;
-      font-weight: 450;
-      padding: 0 4px;
-      flex: 1;
-    }
+        .slider-caption {
+            position: relative;
+            z-index: 2;
+        }
 
-    .highlight {
-      background: #f1f9f4;
-      border-radius: 40px;
-      padding: 4px 12px;
-      display: inline-block;
-      font-weight: 600;
-      color: #0e6245;
-      margin-bottom: 16px;
-    }
+        .slider-caption .title {
+            font-size: 52px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
 
-    /* Botão dentro dos cards */
-    .card-whatsapp-btn {
-      background: #25D366;
-      color: white;
-      border: none;
-      padding: 12px 16px;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 1rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      text-decoration: none;
-      margin-top: 12px;
-      transition: all 0.2s;
-      box-shadow: 0 6px 12px rgba(37, 211, 102, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      width: 100%;
-    }
+        .slider-caption .title span {
+            color: var(--primary);
+        }
 
-    .card-whatsapp-btn i {
-      font-size: 1.3rem;
-    }
+        .description {
+            font-size: 18px;
+            color: #f0f0f0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
 
-    .card-whatsapp-btn:hover {
-      background: #20b859;
-      transform: scale(1.01);
-    }
+        .btn-small {
+            display: inline-block;
+            background: var(--primary);
+            color: #0a0f1a;
+            font-weight: 600;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-size: 16px;
+            transition: 0.2s;
+        }
 
-    /* Mensagem central — sem produtos */
-    .message-box {
-      background: #eaf6f0;
-      border-radius: 28px;
-      padding: 30px 32px;
-      margin: 28px 0 30px;
-      border-left: 8px solid #0e6245;
-      display: flex;
-      align-items: flex-start;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
+        .btn-small:hover {
+            background: #ffffff;
+            color: #0a0f1a;
+            transform: translateY(-2px);
+        }
 
-    .message-icon {
-      font-size: 38px;
-      color: #0e6245;
-      background: white;
-      width: 58px;
-      height: 58px;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.02);
-    }
+        .btn-outline-light {
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
 
-    .message-content {
-      flex: 1;
-    }
+        .btn-outline-light:hover {
+            background: var(--primary);
+            color: #0a0f1a;
+            transform: translateY(-2px);
+        }
 
-    .message-content h2 {
-      font-weight: 700;
-      font-size: 1.9rem;
-      color: #0a2e23;
-      margin-bottom: 10px;
-      letter-spacing: -0.02em;
-    }
+        /* Sections */
+        .section-space {
+            padding: 80px 0;
+        }
 
-    .message-content p {
-      font-size: 1.18rem;
-      line-height: 1.5;
-      color: #1b4538;
-      font-weight: 450;
-    }
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-    .no-products-note {
-      background: transparent;
-      font-weight: 500;
-      display: inline-block;
-      margin-top: 6px;
-      padding: 6px 16px;
-      border-radius: 40px;
-      background: rgba(14, 98, 69, 0.06);
-      color: #0e4f3a;
-    }
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 15px;
+        }
 
-    /* BOTÕES WHATSAPP centrais (mantidos também) */
-    .whatsapp-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      margin: 32px 0 24px;
-    }
+        .title_seprater {
+            width: 70px;
+            height: 4px;
+            background: var(--primary);
+            margin: 12px auto 20px;
+            border-radius: 4px;
+        }
 
-    .btn-whatsapp {
-      background: #25D366;
-      color: white;
-      border: none;
-      padding: 16px 32px;
-      border-radius: 60px;
-      font-weight: 700;
-      font-size: 1.25rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      box-shadow: 0 12px 20px -8px rgba(37, 211, 102, 0.3);
-      transition: all 0.2s ease;
-      text-decoration: none;
-      cursor: pointer;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      flex: 0 1 auto;
-      min-width: 240px;
-    }
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
 
-    .btn-whatsapp i {
-      font-size: 28px;
-    }
+        /* Services Cards */
+        .services3 .post {
+            background: var(--card-bg);
+            padding: 35px 25px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+            height: 100%;
+        }
 
-    .btn-whatsapp:hover {
-      background: #20b859;
-      transform: scale(1.02);
-      box-shadow: 0 18px 28px -8px rgba(37, 211, 102, 0.5);
-    }
+        .services3 .post:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+        }
 
-    .btn-whatsapp-outline {
-      background: transparent;
-      color: #1a2e3b;
-      border: 2px solid #25D366;
-      padding: 14px 28px;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 1.15rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      transition: all 0.2s ease;
-      text-decoration: none;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.02);
-      flex: 0 1 auto;
-    }
+        .post-thumbnail i {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
 
-    .btn-whatsapp-outline i {
-      color: #25D366;
-      font-size: 26px;
-    }
+        .entry-title a {
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff;
+        }
 
-    .btn-whatsapp-outline:hover {
-      background: rgba(37, 211, 102, 0.06);
-      border-color: #1da854;
-      transform: translateY(-2px);
-    }
+        .entry-title a:hover {
+            color: var(--primary);
+        }
 
-    .phone-number {
-      font-family: 'Inter', monospace;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-    }
+        .entry-content p {
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
 
-    /* Rodapé */
-    .footer-note {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 20px;
-      padding-top: 18px;
-      border-top: 1.5px dashed #bcd9cd;
-    }
+        /* Portfolio/Products Gallery */
+        .portfolio-item {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
 
-    .badge {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: white;
-      padding: 8px 22px;
-      border-radius: 60px;
-      font-weight: 500;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-      border: 1px solid #d2eadf;
-    }
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
 
-    .badge i {
-      color: #0e6245;
-      font-size: 18px;
-    }
+        .portfolio-img {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
 
-    .copyright {
-      color: #3e6556;
-      font-weight: 450;
-      font-size: 0.95rem;
-    }
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
 
-    /* BOTÃO FLUTUANTE DO WHATSAPP */
-    .floating-whatsapp {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 65px;
-      height: 65px;
-      background: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-      transition: all 0.25s;
-      z-index: 999;
-      border: 3px solid white;
-      text-decoration: none;
-    }
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.05);
+        }
 
-    .floating-whatsapp i {
-      font-size: 38px;
-      color: white;
-    }
+        .portfolio-info {
+            padding: 20px;
+            text-align: center;
+        }
 
-    .floating-whatsapp:hover {
-      transform: scale(1.1);
-      background: #1da854;
-      box-shadow: 0 18px 30px rgba(37, 211, 102, 0.5);
-    }
+        .portfolio-info h4 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
 
-    /* Ajuste para mobile */
-    @media (max-width: 480px) {
-      .brand-text h1 { font-size: 1.8rem; }
-      .message-content h2 { font-size: 1.6rem; }
-      .footer-note { flex-direction: column; align-items: flex-start; gap: 20px; }
-      .btn-whatsapp, .btn-whatsapp-outline { width: 100%; }
-      .floating-whatsapp { bottom: 20px; right: 20px; width: 58px; height: 58px; }
-      .floating-whatsapp i { font-size: 32px; }
-    }
+        .portfolio-info p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
 
-    /* pequeno ajuste para os cards sem descrição */
-    .feature-item:last-child .card-whatsapp-btn {
-      margin-top: 28px; /* compensa a falta de texto */
-    }
-  </style>
+        /* Testimonial */
+        .testi-4 {
+            background: linear-gradient(135deg, #0b1120, #121826);
+        }
+
+        .testmonial-block {
+            background: rgba(20, 26, 38, 0.95);
+            backdrop-filter: blur(4px);
+            padding: 40px 25px;
+            border-radius: 32px;
+            margin: 20px;
+            border: 1px solid rgba(212, 160, 86, 0.3);
+        }
+
+        .name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .designation {
+            font-size: 14px;
+            color: var(--primary);
+        }
+
+        .rating .fa-star {
+            color: #FFC107;
+            margin: 0 2px;
+            font-size: 14px;
+        }
+
+        .testmonial-block p {
+            color: #ddd;
+            font-style: italic;
+            margin: 20px 0;
+        }
+
+        /* CTA Section */
+        .bg-default {
+            background: #0c111c;
+        }
+
+        .btn-default-dark {
+            background: var(--primary);
+            color: #0a0f1a;
+            padding: 14px 38px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 18px;
+            display: inline-block;
+            transition: 0.2s;
+        }
+
+        .btn-default-dark:hover {
+            background: #fff;
+            color: #0a0f1a;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: #070b14;
+            padding: 60px 0 20px;
+            border-top: 1px solid #1e2533;
+        }
+
+        .footer-widget h4 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-widget p, .footer-widget ul {
+            color: var(--text-muted);
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-widget ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-widget ul li a {
+            color: var(--text-muted);
+        }
+
+        .footer-widget ul li a:hover {
+            color: var(--primary);
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 38px;
+            height: 38px;
+            background: rgba(212, 160, 86, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 38px;
+            color: var(--primary);
+            margin-right: 10px;
+            transition: 0.2s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: #0a0f1a;
+            transform: translateY(-3px);
+        }
+
+        .site-info {
+            background: #03060c;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #aaa;
+            margin-top: 40px;
+        }
+
+        .site-info a {
+            color: var(--primary);
+        }
+
+        /* Scroll top */
+        .scroll-up {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 45px;
+            cursor: pointer;
+            z-index: 99;
+            transition: 0.2s;
+        }
+
+        .scroll-up a {
+            color: #0a0f1a;
+            display: block;
+            font-size: 20px;
+        }
+
+        .scroll-up:hover {
+            background: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* WhatsApp float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background: #25D366;
+            border-radius: 50px;
+            padding: 12px 24px;
+            color: white;
+            font-weight: bold;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: 'Poppins', sans-serif;
+            border: none;
+        }
+
+        .whatsapp-float i {
+            font-size: 28px;
+        }
+
+        .whatsapp-float:hover {
+            background: #20b359;
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 992px) {
+            .slider-caption .title {
+                font-size: 32px;
+            }
+            .section-title {
+                font-size: 28px;
+            }
+            .home-section {
+                padding: 120px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-space {
+                padding: 60px 0;
+            }
+            .home-section {
+                padding: 100px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="card">
-  
-  <!-- Cabeçalho SUPERFARMA -->
-  <div class="brand">
-    <div class="brand-icon">
-      <i class="fas fa-capsules"></i>
+<div id="page" class="site">
+    <div id="wrapper">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+            <div class="container">
+                <div class="custom-logo-link-url">
+                    <h2 class="site-title"><a href="#">Móveis<span>Planejados</span></a></h2>
+                    <p class="site-description">Design e Qualidade para seu Lar</p>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center gap-2">
+                        <li class="nav-item"><a class="nav-link text-white" href="#home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="#produtos">Produtos</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="#sobre">Sobre</a></li>
+                        <li class="nav-item">
+                            <a class="btn-wa-header" href="https://wa.me/5511949741220?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20móveis%20planejados" target="_blank"><i class="fab fa-whatsapp me-1"></i> Orçamento Grátis</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="content">
+            <!-- Banner Section -->
+            <section class="bcslider-section" id="home">
+                <div class="home-section back-img" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg?auto=compress&cs=tinysrgb&w=1600'); background-size: cover; background-position: center;">
+                    <div class="container slider-caption">
+                        <div class="caption-content text-center" data-aos="fade-up">
+                            <h2 class="title">Móveis Planejados <span>Sob Medida</span></h2>
+                            <p class="description">Transforme seus ambientes com projetos exclusivos, materiais de alta qualidade e acabamento impecável. Do conceito à instalação, cuidamos de tudo para você.</p>
+                            <div class="btn-combo mt-4">
+                                <a href="https://wa.me/5511949741220?text=Olá!%20Quero%20fazer%20um%20projeto%20de%20móveis%20planejados" target="_blank" class="btn-small me-3">Solicitar Orçamento <i class="fab fa-whatsapp ms-2"></i></a>
+                                <a href="#produtos" class="btn-outline-light">Ver Portfólio</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Section - Diferenciais -->
+            <section class="section-space services3">
+                <div class="container">
+                    <div class="section-header" data-aos="fade-up">
+                        <h2 class="section-title">Por que escolher a gente?</h2>
+                        <div class="title_seprater"></div>
+                        <h5 class="section-subtitle">Qualidade, pontualidade e design exclusivo - Os diferenciais que nos tornam referência</h5>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                            <article class="post text-center">
+                                <figure class="post-thumbnail">
+                                    <i class="fas fa-pencil-ruler"></i>
+                                </figure>
+                                <div class="entry-header">
+                                    <h4 class="entry-title"><a href="https://wa.me/5511949741220?text=Olá!%20Quero%20um%20projeto%20exclusivo">Projeto Exclusivo</a></h4>
+                                </div>
+                                <div class="entry-content">
+                                    <p>Design personalizado 100% adaptado ao seu espaço e estilo, com renderização 3D para visualizar antes de produzir.</p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                            <article class="post text-center">
+                                <figure class="post-thumbnail">
+                                    <i class="fas fa-crown"></i>
+                                </figure>
+                                <div class="entry-header">
+                                    <h4 class="entry-title"><a href="https://wa.me/5511949741220?text=Olá!%20Materiais%20de%20qualidade">Materiais Premium</a></h4>
+                                </div>
+                                <div class="entry-content">
+                                    <p>Utilizamos MDF de alta densidade, ferragens importadas e acabamentos resistentes com garantia de 5 anos.</p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+                            <article class="post text-center">
+                                <figure class="post-thumbnail">
+                                    <i class="fas fa-tools"></i>
+                                </figure>
+                                <div class="entry-header">
+                                    <h4 class="entry-title"><a href="https://wa.me/5511949741220?text=Olá!%20Instalação%20e%20entrega">Instalação Rápida</a></h4>
+                                </div>
+                                <div class="entry-content">
+                                    <p>Equipe especializada para montagem e instalação, entregamos e montamos no prazo combinado sem bagunça.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Portfolio / Produtos Section -->
+            <section class="section-space" id="produtos" style="background: #0c111c;">
+                <div class="container">
+                    <div class="section-header" data-aos="fade-up">
+                        <h2 class="section-title">Nossos Projetos Recentes</h2>
+                        <div class="title_seprater"></div>
+                        <h5 class="section-subtitle">Conheça alguns dos nossos trabalhos realizados com muito carinho e dedicação</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="portfolio-item">
+                                <div class="portfolio-img">
+                                    <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Cozinha Planejada">
+                                </div>
+                                <div class="portfolio-info">
+                                    <h4>Cozinha Planejada</h4>
+                                    <p>MDF Premium - Design Contemporâneo</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="portfolio-item">
+                                <div class="portfolio-img">
+                                    <img src="https://images.pexels.com/photos/276534/pexels-photo-276534.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Closet Planejado">
+                                </div>
+                                <div class="portfolio-info">
+                                    <h4>Closet Planejado</h4>
+                                    <p>Iluminação LED e Nichos Especiais</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="portfolio-item">
+                                <div class="portfolio-img">
+                                    <img src="https://images.pexels.com/photos/1571459/pexels-photo-1571459.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Home Office">
+                                </div>
+                                <div class="portfolio-info">
+                                    <h4>Home Office</h4>
+                                    <p>Mesa Sob Medida e Prateleiras</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+                            <div class="portfolio-item">
+                                <div class="portfolio-img">
+                                    <img src="https://images.pexels.com/photos/1258119/pexels-photo-1258119.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Quarto Casal">
+                                </div>
+                                <div class="portfolio-info">
+                                    <h4>Quarto Casal</h4>
+                                    <p>Cabeceira e Painel em MDF</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="500">
+                            <div class="portfolio-item">
+                                <div class="portfolio-img">
+                                    <img src="https://images.pexels.com/photos/1643384/pexels-photo-1643384.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sala de Estar">
+                                </div>
+                                <div class="portfolio-info">
+                                    <h4>Sala de Estar</h4>
+                                    <p>Estante Rack e Painel Integrado</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="600">
+                            <div class="portfolio-item">
+                                <div class="portfolio-img">
+                                    <img src="https://images.pexels.com/photos/6450477/pexels-photo-6450477.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Banheiro Planejado">
+                                </div>
+                                <div class="portfolio-info">
+                                    <h4>Banheiro Planejado</h4>
+                                    <p>Armário e Nichos em Área Úmida</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-5">
+                        <a href="https://wa.me/5511949741220?text=Olá!%20Quero%20ver%20mais%20projetos" class="btn-default-dark"><i class="fab fa-whatsapp me-2"></i> Peça seu Projeto Personalizado</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonial Section -->
+            <section class="section-space testimonial testi-4">
+                <div class="container">
+                    <div class="section-header" data-aos="fade-up">
+                        <h2 class="section-title text-white">O que nossos clientes dizem</h2>
+                        <p class="text-white-50">Clientes satisfeitos que transformaram seus lares com nossos móveis</p>
+                        <div class="title_seprater"></div>
+                    </div>
+                    <div class="owl-carousel owl-theme" id="testimonial-carousel">
+                        <div class="item">
+                            <blockquote class="testmonial-block text-center">
+                                <figcaption>
+                                    <cite class="name">Ana Carolina</cite>
+                                    <span class="designation d-block">Cliente - Cozinha Planejada</span>
+                                </figcaption>
+                                <div class="entry-content mt-3">
+                                    <p>"Fiz minha cozinha toda planejada com a equipe e ficou simplesmente perfeita! Projeto 3D me ajudou muito a visualizar, prazo cumprido e acabamento impecável. Super recomendo!"</p>
+                                </div>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                </div>
+                            </blockquote>
+                        </div>
+                        <div class="item">
+                            <blockquote class="testmonial-block text-center">
+                                <figcaption>
+                                    <cite class="name">Roberto Santos</cite>
+                                    <span class="designation d-block">Cliente - Closet</span>
+                                </figcaption>
+                                <div class="entry-content mt-3">
+                                    <p>"Atendimento excelente desde o primeiro contato. Meu closet ficou dos sonhos, aproveitou cada centímetro do espaço. Profissionais muito caprichosos, nota 1000!"</p>
+                                </div>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                </div>
+                            </blockquote>
+                        </div>
+                        <div class="item">
+                            <blockquote class="testmonial-block text-center">
+                                <figcaption>
+                                    <cite class="name">Fernanda Lima</cite>
+                                    <span class="designation d-block">Cliente - Home Office</span>
+                                </figcaption>
+                                <div class="entry-content mt-3">
+                                    <p>"Montei meu escritório em casa com eles e foi a melhor decisão. Design moderno, materiais de qualidade e entrega super rápida. Já indiquei para todos os amigos!"</p>
+                                </div>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                </div>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Final -->
+            <section class="section-space bg-default">
+                <div class="container">
+                    <div class="row text-center" data-aos="fade-up">
+                        <div class="col-lg-12">
+                            <h2 class="section-title">Pronto para transformar seu lar?</h2>
+                            <div class="title_seprater"></div>
+                            <h5 class="section-subtitle mb-4">Entre em contato agora mesmo e agende uma visita técnica sem compromisso.</h5>
+                            <a href="https://wa.me/5511949741220?text=Olá!%20Quero%20um%20orçamento%20para%20móveis%20planejados" class="btn-default-dark"><i class="fab fa-whatsapp me-2"></i> Falar com Especialista</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4 footer-widget">
+                        <h4>Sobre Nós</h4>
+                        <p>Há mais de 10 anos transformando sonhos em realidade com móveis planejados de alta qualidade. Design, funcionalidade e pontualidade são nossas marcas registradas.</p>
+                        <div class="social-links mt-3">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 footer-widget">
+                        <h4>Links Rápidos</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#produtos">Projetos</a></li>
+                            <li><a href="https://wa.me/5511949741220?text=Olá!%20Quero%20orçamento">Orçamento</a></li>
+                            <li><a href="#">Política de Privacidade</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 footer-widget">
+                        <h4>Contato</h4>
+                        <ul>
+                            <li><i class="fab fa-whatsapp me-2" style="color: #25D366;"></i> (11) 94974-1220</li>
+                            <li><i class="far fa-envelope me-2"></i> contato@moveisplanejados.com</li>
+                            <li><i class="fas fa-map-marker-alt me-2"></i> São Paulo - SP</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="site-info text-center">
+                <span class="copyright">© 2025 Móveis Planejados - Todos os direitos reservados | Design exclusivo para seu lar</span>
+            </div>
+        </footer>
+        
+        <div class="scroll-up" id="scroll-top">
+            <a href="#"><i class="fa fa-arrow-up"></i></a>
+        </div>
     </div>
-    <div class="brand-text">
-      <h1>Super<span style="font-weight: 600; color: #0e6245;">Farma</span></h1>
-      <div class="tagline">
-        <i class="fas fa-circle-check" style="font-size: 0.9rem; margin-right: 6px; color: #0e6245;"></i> 
-        Cuidado descomplicado · desde 2012
-      </div>
-    </div>
-  </div>
-  
-  <div class="divider"></div>
-  
-  <!-- TRÊS DIFERENCIAIS (cada um com botão de WhatsApp) -->
-  <div class="features-grid">
-    
-    <!-- Envio Nacional -->
-    <div class="feature-item">
-      <div class="feature-icon">
-        <i class="fas fa-truck-fast"></i>
-      </div>
-      <h3>Envio Nacional</h3>
-      <p>
-        Entregamos para <strong>todo o Brasil</strong>, de capitais a cidades pequenas.
-      </p>
-      <span class="highlight">
-        <i class="fas fa-map-pin" style="margin-right: 6px;"></i>Chega onde você estiver
-      </span>
-      <a href="https://wa.me/5511949741220" target="_blank" class="card-whatsapp-btn">
-        <i class="fab fa-whatsapp"></i> Falar sobre envio
-      </a>
-    </div>
-    
-    <!-- Atendimento 24 horas -->
-    <div class="feature-item">
-      <div class="feature-icon">
-        <i class="fas fa-clock"></i>
-      </div>
-      <h3>24 Horas</h3>
-      <p>
-        Atendimento humano <strong>dia e noite</strong>, inclusive feriados.
-      </p>
-      <span class="highlight">
-        <i class="fas fa-headset"></i> chat · whatsapp
-      </span>
-      <a href="https://wa.me/5511949741220" target="_blank" class="card-whatsapp-btn">
-        <i class="fab fa-whatsapp"></i> Atendimento agora
-      </a>
-    </div>
-    
-    <!-- Sem burocracia -->
-    <div class="feature-item">
-      <div class="feature-icon">
-        <i class="fas fa-file-signature"></i>
-      </div>
-      <h3>Sem Burocracia</h3>
-      <!-- sem descrição extra, conforme solicitado -->
-      <a href="https://wa.me/5511949741220" target="_blank" class="card-whatsapp-btn" style="margin-top: 30px;">
-        <i class="fab fa-whatsapp"></i> Resolver sem complicação
-      </a>
-    </div>
-  </div>
-  
-  <!-- BOTÕES DO WHATSAPP centrais (mantidos para redundância positiva) -->
-  <div class="whatsapp-actions">
-    <a href="https://wa.me/5511949741220" target="_blank" class="btn-whatsapp">
-      <i class="fab fa-whatsapp"></i> 
-      <span>Chamar no WhatsApp</span>
-    </a>
-    <a href="https://wa.me/5511949741220" target="_blank" class="btn-whatsapp-outline">
-      <i class="fab fa-whatsapp"></i> 
-      <span class="phone-number">(11) 94974-1220</span>
-    </a>
-  </div>
-  
-  <!-- Bloco de destaque -->
-  <div class="message-box">
-    <div class="message-icon">
-      <i class="fas fa-hand-holding-heart"></i>
-    </div>
-    <div class="message-content">
-      <h2>Aqui você não encontra produtos listados.</h2>
-      <p>
-        Somos uma farmácia de <strong>atendimento personalizado</strong> — fale com a gente, 
-        conte o que precisa e receba as melhores opções, com envio para qualquer lugar do país. 
-        Nada de vitrine virtual: <strong>cuidado real, sem complicação</strong>.
-      </p>
-      <div class="no-products-note">
-        <i class="far fa-smile" style="margin-right: 8px;"></i> Atendemos por telefone, WhatsApp ou e‑mail — 24h por dia.
-      </div>
-    </div>
-  </div>
-  
-  <!-- Rodapé (sem 0800) -->
-  <div class="footer-note">
-    <div class="badge">
-      <i class="fas fa-shield-alt"></i> 
-      <span>Envio nacional · 24h · sem burocracia</span>
-    </div>
-    
-    <div class="copyright">
-      © 2026 · SuperFarma · <i class="far fa-envelope" style="margin:0 6px;"></i> contato@superfarma.com.br
-    </div>
-    
-    <!-- substituído 0800 por ícone whats simples -->
-    <div style="display: flex; gap: 5px;">
-      <span style="background: #ffffffc0; padding: 8px 16px; border-radius: 40px; font-weight: 500; color: #0e6245;">
-        <i class="fab fa-whatsapp" style="margin-right: 6px;"></i> (11) 94974-1220
-      </span>
-    </div>
-  </div>
-  
-  <!-- Linha extra -->
-  <div style="display: flex; justify-content: flex-end; margin-top: 16px;">
-    <span style="background: #ffffffb0; border-radius: 30px; padding: 6px 18px; font-size: 0.9rem; color: #1f5541; backdrop-filter: blur(4px); border: 1px solid #c7e0d5;">
-      <i class="far fa-comment-dots" style="margin-right: 6px;"></i>Fale com um farmacêutico agora — sem fila.
-    </span>
-  </div>
-  
 </div>
 
-<!-- BOTÃO FLUTUANTE DO WHATSAPP -->
-<a href="https://wa.me/5511949741220" target="_blank" class="floating-whatsapp" title="Fale conosco no WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a>
+<!-- WhatsApp Floating -->
+<div class="whatsapp-float" id="whatsappFloatBtn">
+    <i class="fab fa-whatsapp"></i> <span>Fale com um Designer</span>
+</div>
 
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true });
+    
+    $('#testimonial-carousel').owlCarousel({
+        loop: true,
+        margin: 20,
+        autoplay: true,
+        autoplayTimeout: 4500,
+        smartSpeed: 800,
+        responsive: { 0: { items: 1 }, 768: { items: 2 }, 992: { items: 2 } },
+        dots: true,
+        nav: false
+    });
+
+    const scrollBtn = document.getElementById('scroll-top');
+    scrollBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    const waBtn = document.getElementById('whatsappFloatBtn');
+    waBtn.addEventListener('click', function() {
+        window.open('https://wa.me/5511949741220?text=Olá!%20Gostaria%20de%20informações%20sobre%20móveis%20planejados', '_blank');
+    });
+
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar-custom');
+        if (window.scrollY > 50) {
+            navbar.style.backgroundColor = '#0c111c';
+            navbar.style.backdropFilter = 'blur(10px)';
+        } else {
+            navbar.style.backgroundColor = '#0c111ce6';
+        }
+    });
+</script>
 </body>
 </html>
